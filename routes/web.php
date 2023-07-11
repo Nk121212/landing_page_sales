@@ -40,6 +40,12 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
     Route::post('/categories/delete', [App\Http\Controllers\Admin\CategoriesController::class, 'delete'])->name('admin.categories.delete');
 
     Route::get('/simulasi', [App\Http\Controllers\Admin\SimulasiController::class, 'index'])->name('admin.simulasi');
+    Route::get('/simulasi/datatable', [App\Http\Controllers\Admin\SimulasiController::class, 'datatable'])->name('admin.simulasi.datatable');
+    Route::post('/simulasi/create', [App\Http\Controllers\Admin\SimulasiController::class, 'create'])->name('admin.simulasi.create');
+    Route::post('/simulasi/profile', [App\Http\Controllers\Admin\SimulasiController::class, 'profile'])->name('admin.simulasi.profile');
+    Route::post('/simulasi/update', [App\Http\Controllers\Admin\SimulasiController::class, 'update'])->name('admin.simulasi.update');
+    Route::post('/simulasi/delete', [App\Http\Controllers\Admin\SimulasiController::class, 'delete'])->name('admin.simulasi.delete');
+
     Route::get('/testimoni', [App\Http\Controllers\Admin\TestimoniController::class, 'index'])->name('admin.testimoni');
 });
 

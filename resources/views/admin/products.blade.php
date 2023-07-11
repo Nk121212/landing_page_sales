@@ -94,8 +94,8 @@
                             <label for="categories_id">Kategori</label>
                             <select name="categories_id" id="categories_id" class="form-control" required>
                                 <option value="" disabled selected>Pilih Kategori</option>
-                                @foreach(getCategori() as $booking)
-                                    <option value="{{$booking->id}}">{{$booking->name}}</option>
+                                @foreach(getCategori() as $data)
+                                    <option value="{{$data->id}}">{{$data->name}}</option>
                                 @endforeach
                             </select>
                         </div>

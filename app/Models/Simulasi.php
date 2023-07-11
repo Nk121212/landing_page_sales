@@ -9,6 +9,8 @@ class Simulasi extends Model
 {
     use HasFactory;
 
+    protected $table = 'master_simulasi';
+
     protected $fillable = [
         'products_id',
         'photo',
