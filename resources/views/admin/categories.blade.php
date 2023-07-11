@@ -9,9 +9,6 @@
                 <tr>
                     <th>No</th>
                     <th>Name</th>
-                    <th>Price</th>
-                    <th>Photo</th>
-                    <th>Embed</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -56,7 +53,7 @@
     </div>
 
     <div class="modal fade formCRUD" id="myModal">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog">
             <div class="modal-content">
 
             <!-- Modal Header -->
@@ -64,7 +61,7 @@
                 <h4 class="modal-title">Form Products</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
-            <form id="formCRUD" method="POST" action="{{ route('admin.products.create') }}">
+            <form id="formCRUD" method="POST" action="{{ route('admin.categories.create') }}">
                 <div class="modal-body">
 
                     <!-- <div class="col-12 success_handling"></div>
@@ -73,33 +70,9 @@
                     <input type="hidden" id="id" name="id">
 
                     <div class="row">
-                        <div class="form-group col-6">
+                        <div class="form-group col-12">
                             <label for="name">Name</label>
                             <input type="text" class="form-control" id="name" name="name" placeholder="" required>
-                        </div>
-                        <div class="form-group col-6">
-                            <label for="price">Price</label>
-                            <input type="text" class="form-control formatRupiah" id="price" name="price" placeholder="" required>
-                        </div>
-                        <div class="form-group col-6">
-                            <label for="photo">Photo</label> 
-                            <input type="file" class="form-control" name="photo" accept=".jpg,.jpeg,.png,.svg" id="photo">
-                        </div>
-                        <div class="form-group col-6">
-                            <label for="embed">Embed Link</label>
-                            <input type="url" class="form-control" id="embed" name="embed" placeholder="" required>
-                        </div>
-                        <div class="form-group col-6">
-                            <label for="categories_id">Kategori</label>
-                            <select name="categories_id" id="categories_id" class="form-control" required>
-                                <option value="" disabled selected>Pilih Kategori</option>
-                                <option value="1">A</option>
-                                <option value="2">B</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-6">
-                            <label for="description">Description</label>
-                            <textarea name="description" class="form-control" id="description" name="description" cols="30" rows="5"></textarea>
                         </div>
                     </div>
                 
@@ -123,29 +96,10 @@
             var table = $('.my-datatable').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('admin.products.datatable') }}",
+                ajax: "{{ route('admin.categories.datatable') }}",
                 columns: [
                     {data: 'DT_RowIndex', name: 'DT_RowIndex', width: '5%', className: 'dt-center', orderable: false},
-                    {data: 'name', name: 'name', width: '20%', className: 'dt-center'},
-                    {data: 'price', name: 'price', width: '10%', className: 'dt-center'},
-                    {
-                        data: 'photo', 
-                        name: 'photo',
-                        width: '20%',
-                        className: 'dt-center',
-                        render: function(data, type) {
-                            return '<img src="{{ URL::asset("uploads") }}/'+data+'" style="width: 100%;height: 5rem;"></img>';
-                        }
-                    },
-                    {
-                        data: 'embed', 
-                        name: 'embed',
-                        width: '30%',
-                        className: 'dt-center',
-                        render: function(data, type) {
-                            return '<a target="_blank" href="'+data+'">'+data+'</a>';
-                        }
-                    },
+                    {data: 'name', name: 'name', width: '80%', className: 'dt-center'},
                     {
                         data: 'action', 
                         name: 'action', 
@@ -153,7 +107,7 @@
                         className: 'dt-center',
                         orderable: true, 
                         searchable: true
-                    },
+                    }
                 ]
             });
         });
