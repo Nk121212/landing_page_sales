@@ -47,6 +47,13 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
     Route::post('/simulasi/delete', [App\Http\Controllers\Admin\SimulasiController::class, 'delete'])->name('admin.simulasi.delete');
 
     Route::get('/testimoni', [App\Http\Controllers\Admin\TestimoniController::class, 'index'])->name('admin.testimoni');
+    Route::get('/testimoni', [App\Http\Controllers\Admin\TestimoniController::class, 'index'])->name('admin.testimoni');
+    Route::get('/testimoni/datatable', [App\Http\Controllers\Admin\TestimoniController::class, 'datatable'])->name('admin.testimoni.datatable');
+    Route::post('/testimoni/create', [App\Http\Controllers\Admin\TestimoniController::class, 'create'])->name('admin.testimoni.create');
+    Route::post('/testimoni/profile', [App\Http\Controllers\Admin\TestimoniController::class, 'profile'])->name('admin.testimoni.profile');
+    Route::post('/testimoni/update', [App\Http\Controllers\Admin\TestimoniController::class, 'update'])->name('admin.testimoni.update');
+    Route::post('/testimoni/delete', [App\Http\Controllers\Admin\TestimoniController::class, 'delete'])->name('admin.testimoni.delete');
+
 });
 
 Route::group(['prefix' => 'guest'], function() {
