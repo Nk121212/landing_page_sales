@@ -1,4 +1,24 @@
-@include('layouts.header')
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!doctype html>
+<html lang="zxx">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <title>Landing Page Hyundai</title>
+  <!-- Template CSS -->
+  <link href="//fonts.googleapis.com/css?family=Poppins:300,400,400i,500,600,700&display=swap" rel="stylesheet">
+  <link href="//fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="{{ asset('assets/css/style-starter.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/datatables/jquery.dataTables.min.css') }}">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+</head>
 
 <body>
   <!--header-->
@@ -20,20 +40,20 @@
             @guest
                 @if (Route::has('login'))
 
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Home </a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('guest.home') }}">Home </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">Product</a>
+                        <a class="nav-link" href="{{ route('guest.products') }}">Product</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="services.html">News</a>
+                        <a class="nav-link" href="{{ route('guest.news') }}">News</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="services.html">Simulasi</a>
+                        <a class="nav-link" href="{{ route('guest.simulasi') }}">Simulasi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="services.html">Contact Us</a>
+                        <a class="nav-link" href="{{ route('guest.contact') }}">Contact Us</a>
                     </li>
                     
                     <li class="nav-item">
@@ -43,18 +63,30 @@
                 @endif
             @else
 
-                <li class="nav-item">
+                <li class="nav-item products">
                     <a class="nav-link" href="{{ route('admin.products') }}">Product</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item categories">
                     <a class="nav-link" href="{{ route('admin.categories') }}">Categories</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item simulasi">
                     <a class="nav-link" href="{{ route('admin.simulasi') }}">Simulasi</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item testimoni">
                     <a class="nav-link" href="{{ route('admin.testimoni') }}">Testimoni</a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ route('logout') }}"
+                      onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                      {{ __('Logout') }}
+                  </a>
+
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                      @csrf
+                  </form>
+                </li>
+                
 
             @endguest
           </ul>
@@ -110,7 +142,11 @@
 
   <script src="{{ asset('assets/js/theme-change.js') }}"></script>
 
-  <div style="">
+  <script src="{{ asset('js/helper.js') }}"></script>
+
+  <div class="fixed-top text-right text-white show-my-toast" style="width: 25%;"></div>
+
+  <div style="margin-top: 2%;margin-bottom: 4%;">
     <section>
         <main class="py-4">
             @yield('content')
@@ -144,6 +180,12 @@
 
 <script>
     $(document).ready(function () {
+
+      // $(".toast").toast();
+      // alert("{{ request()->segment(2) }}");
+      $('.nav-item').removeClass('active');
+      $('.{{ request()->segment(2) }}').addClass('active');
+
       $('.popup-with-zoom-anim').magnificPopup({
         type: 'inline',
 

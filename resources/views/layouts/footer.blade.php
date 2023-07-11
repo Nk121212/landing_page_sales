@@ -1,5 +1,5 @@
 <!-- footer-66 -->
-<footer class="w3l-footer-66">
+<footer class="w3l-footer-66" style="position: fixed;bottom: 0;width: 100%;">
     <section class="footer-inner-main">
       <div class="below-section">
         <div class="container">
