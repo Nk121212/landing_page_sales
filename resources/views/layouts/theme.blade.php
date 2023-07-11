@@ -40,22 +40,21 @@ Author URL: http://w3layouts.com
             @guest
                 @if (Route::has('login'))
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('guest.home') }}">Home </a>
+                    <li class="nav-item home">
+                        <a class="nav-link" href="{{ route('home') }}">Home </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item products">
                         <a class="nav-link" href="{{ route('guest.products') }}">Product</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item news">
                         <a class="nav-link" href="{{ route('guest.news') }}">News</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item simulasi">
                         <a class="nav-link" href="{{ route('guest.simulasi') }}">Simulasi</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item contact">
                         <a class="nav-link" href="{{ route('guest.contact') }}">Contact Us</a>
                     </li>
-                    
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                     </li>
@@ -181,10 +180,14 @@ Author URL: http://w3layouts.com
 <script>
     $(document).ready(function () {
 
-      // $(".toast").toast();
-      // alert("{{ request()->segment(2) }}");
+      var segment = "{{ request()->segment(2) }}";
       $('.nav-item').removeClass('active');
-      $('.{{ request()->segment(2) }}').addClass('active');
+
+      if(segment == ""){
+        $('.home').addClass('active');
+      }else{
+        $('.{{ request()->segment(2) }}').addClass('active');
+      }
 
       $('.popup-with-zoom-anim').magnificPopup({
         type: 'inline',

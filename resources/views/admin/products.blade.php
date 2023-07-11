@@ -21,6 +21,8 @@
         </table>
     </div>
 
+    {{ getCategori() }}
+
     <div class="modal fade formDelete" id="modalConfirm">
         <div class="modal-dialog">
             <div class="modal-content">

@@ -15,14 +15,13 @@ use App\Models\User;
 |
 */
 
-Route::get('/', function () {
-    // return view('landing');
-    return view("landing");
-});
+// Route::get('/', function () {
+//     return view("home");
+// });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
     
@@ -36,4 +35,14 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
     Route::get('/categories', [App\Http\Controllers\Admin\CategoriesController::class, 'index'])->name('admin.categories');
     Route::get('/simulasi', [App\Http\Controllers\Admin\SimulasiController::class, 'index'])->name('admin.simulasi');
     Route::get('/testimoni', [App\Http\Controllers\Admin\TestimoniController::class, 'index'])->name('admin.testimoni');
+});
+
+Route::group(['prefix' => 'guest'], function() {
+    
+    Route::get('/products', [App\Http\Controllers\Guest\ProductsController::class, 'index'])->name('guest.products');
+    Route::get('/news', [App\Http\Controllers\Guest\CategoriesController::class, 'index'])->name('guest.news');
+    Route::get('/simulasi', [App\Http\Controllers\Guest\SimulasiController::class, 'index'])->name('guest.simulasi');
+    Route::get('/testimoni', [App\Http\Controllers\Guest\TestimoniController::class, 'index'])->name('guest.testimoni');
+    Route::get('/contact', [App\Http\Controllers\Guest\TestimoniController::class, 'index'])->name('guest.contact');
+
 });

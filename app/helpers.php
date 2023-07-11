@@ -2,11 +2,16 @@
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Categories;
 
 if(!function_exists('getCategori')){
+
     function getCategori(){
-        return 'test';
+        $list_categories = Categories::all();
+
+        return $list_categories;
     }
+
 }
 
 if(!function_exists('uploadFile')){

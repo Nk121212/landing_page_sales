@@ -19,6 +19,48 @@ var format = function(num){
     return("" + formatted + ((parts) ? "." + parts[1].substr(0, 2) : ""));
 };
 
+function getProfile(id, url_profile, url_update){
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        type: "POST",
+        url: url_profile,
+        data: {id: id},
+        // dataType:"json",
+        success: function(response){
+            console.log(response);
+            $.each(response.data, function(k, v) {
+                if(k !== 'photo'){
+                    $('input[name="'+k+'"]').val(v).trigger('keyup');
+                    $('select[name="'+k+'"]').val(v).trigger('change');
+                    $('textarea[name="'+k+'"]').text(v);
+                }
+            });
+
+            $('#formCRUD').attr('action', url_update);
+            $('#formCRUD').attr('method', 'POST');
+            $('#myModal').modal('show');
+            $('#myModal').modal({backdrop: 'static', keyboard: false});
+        },
+        error: function(e){
+            console.log(e);
+        }
+    });
+}
+
+function showDeleteModal(id, url_delete){
+
+    $('#formDelete').attr('action', url_delete);
+    $('#formDelete input[name="id"]').val(id);
+    $('#modalConfirm').modal('show');
+    $('#modalConfirm').modal({backdrop: 'static', keyboard: false});
+}
+
 function submitForm(formId, url, method, data, isUpload){
 
     var table = $('.my-datatable').DataTable();
@@ -44,7 +86,7 @@ function submitForm(formId, url, method, data, isUpload){
             // timeout: 600000,
             success: function (response) {
 
-                $('div.show-my-toast').append('<div class="toast bg-success" role="alert" aria-live="assertive" aria-atomic="true">'+
+                $('div.show-my-toast').html('<div class="toast bg-success" role="alert" aria-live="assertive" aria-atomic="true">'+
                     '<div class="toast-header">'+
                         '<img src="" class="rounded mr-2" alt="">'+
                         '<strong class="mr-auto">Success</strong>'+
@@ -68,7 +110,7 @@ function submitForm(formId, url, method, data, isUpload){
             error: function (e) {
                 // console.log(e);
 
-                $('div.show-my-toast').append('<div class="toast bg-danger" role="alert" aria-live="assertive" aria-atomic="true">'+
+                $('div.show-my-toast').html('<div class="toast bg-danger" role="alert" aria-live="assertive" aria-atomic="true">'+
                     '<div class="toast-header">'+
                         '<img src="" class="rounded mr-2" alt="">'+
                         '<strong class="mr-auto">Error</strong>'+
@@ -100,52 +142,11 @@ function submitForm(formId, url, method, data, isUpload){
 
 }
 
-function getProfile(id, url_profile, url_update){
-
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-
-    $.ajax({
-        type: "POST",
-        url: url_profile,
-        data: {id: id},
-        // dataType:"json",
-        success: function(response){
-            console.log(response);
-            $.each(response.data, function(k, v) {
-                if(k !== 'photo'){
-                    $('input[name="'+k+'"]').val(v).trigger('keyup');
-                    $('select[name="'+k+'"]').val(v).trigger('change');
-                    $('textarea[name="'+k+'"]').text(v);
-                }
-            });
-
-            $('.formCRUD').attr('action', url_update);
-            $('#myModal').modal('show');
-            $('#myModal').modal({backdrop: 'static', keyboard: false});
-        },
-        error: function(e){
-            console.log(e);
-        }
-    });
-}
-
-function showDeleteModal(id, url_delete){
-
-    $('#formDelete').attr('action', url_delete);
-    $('#formDelete input[name="id"]').val(id);
-    $('#modalConfirm').modal('show');
-    $('#modalConfirm').modal({backdrop: 'static', keyboard: false});
-}
-
 
 $(document).ready(function(){
 
     $('#myModal').on('hidden.bs.modal', function () {
-        $('.formCRUD')[0].reset();
+        $('#formCRUD')[0].reset();
         $('textarea').text("");
     })
 
@@ -153,7 +154,7 @@ $(document).ready(function(){
         $('#myModal').modal({backdrop: 'static', keyboard: false});
     });
 
-    $("form").submit(function (event) {
+    $("#formCRUD, #formDelete").submit(function (event) {
 
         event.preventDefault();
 
@@ -162,6 +163,10 @@ $(document).ready(function(){
         var method = $(this).attr('method');
         var enctype = $(this).attr('enctype');
         var data = $('#'+formId).serializeArray();
+
+
+        // console.log(formId, url, method, enctype, data);
+        // return false;
 
         var isUpload = (enctype === 'undefined') ? "" : enctype;
 
