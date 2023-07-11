@@ -21,8 +21,6 @@
         </table>
     </div>
 
-    {{ getCategori() }}
-
     <div class="modal fade formDelete" id="modalConfirm">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -96,8 +94,9 @@
                             <label for="categories_id">Kategori</label>
                             <select name="categories_id" id="categories_id" class="form-control" required>
                                 <option value="" disabled selected>Pilih Kategori</option>
-                                <option value="1">A</option>
-                                <option value="2">B</option>
+                                @foreach(getCategori() as $booking)
+                                    <option value="{{$booking->id}}">{{$booking->name}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group col-6">

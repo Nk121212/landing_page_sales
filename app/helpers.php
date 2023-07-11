@@ -8,6 +8,7 @@ if(!function_exists('getCategori')){
 
     function getCategori(){
         $list_categories = Categories::all();
+        // dd($list_categories->name);
 
         return $list_categories;
     }

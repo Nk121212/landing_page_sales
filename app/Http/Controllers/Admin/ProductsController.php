@@ -18,6 +18,7 @@ class ProductsController extends Controller
     }
 
     public function index(){
+        // dd(getCategori());
         return view('admin.products');
     }
 
