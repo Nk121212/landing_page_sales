@@ -12,7 +12,6 @@ class Simulasi extends Model
     protected $table = 'master_simulasi';
 
     protected $fillable = [
-        'products_id',
-        'photo',
+        'photo'
     ];
 }

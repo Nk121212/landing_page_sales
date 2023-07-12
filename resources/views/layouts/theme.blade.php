@@ -83,9 +83,9 @@ Author URL: http://w3layouts.com
                     <li class="nav-item contact">
                         <a class="nav-link" href="{{ route('guest.contact') }}">Contact Us</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                    </li>
+                    </li> -->
                 
                 @endif
             @else
@@ -144,7 +144,7 @@ Author URL: http://w3layouts.com
           <!-- /search popup -->
         </div>
         <!-- toggle switch for light and dark theme -->
-        <div class="mobile-position">
+        <!-- <div class="mobile-position">
           <nav class="navigation">
             <div class="theme-switch-wrapper">
               <label class="theme-switch" for="checkbox">
@@ -156,7 +156,7 @@ Author URL: http://w3layouts.com
               </label>
             </div>
           </nav>
-        </div>
+        </div> -->
       </nav>
     </div>
   </header>

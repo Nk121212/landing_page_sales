@@ -14,8 +14,6 @@ class Promo extends Model
     protected $fillable = [
         'name',
         'photo',
-        'description',
-        'start_date',
-        'end_date'
+        'description'
     ];
 }

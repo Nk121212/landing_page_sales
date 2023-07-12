@@ -22,7 +22,7 @@ class SimulasiController extends Controller
 
     public function datatable(Request $request){
         if ($request->ajax()) {
-            $data = Simulasi::select('master_simulasi.*', 'products.name as product_name')->join('products', 'products.id', '=', 'master_simulasi.products_id');
+            $data = Simulasi::latest()->get();
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
@@ -37,11 +37,9 @@ class SimulasiController extends Controller
 
     public function create(Request $request){
 
-        // dd($request->all());
         if(isset($request->photo)){
 
             $this->validate($request,[
-                'products_id' => 'required',
                 'photo' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048']
             ]);
     
@@ -50,7 +48,6 @@ class SimulasiController extends Controller
         }
 
         $action = Simulasi::create([
-            'products_id' => $request->products_id,
             'photo' => isset($upload) ? $upload : ''
         ]);
 
@@ -70,7 +67,6 @@ class SimulasiController extends Controller
         if(isset($request->photo)){
 
             $this->validate($request,[
-                'products_id' => 'required',
                 'photo' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048']
             ]);
     

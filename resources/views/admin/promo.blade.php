@@ -11,8 +11,6 @@
                     <th>No</th>
                     <th>Name</th>
                     <th>Photo</th>
-                    <th>Start Date</th>
-                    <th>End Date</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -25,11 +23,6 @@
         <div class="modal-dialog">
             <div class="modal-content">
 
-            <!-- Modal Header -->
-            <!-- <div class="modal-header bg-danger text-white">
-                <h5 class="modal-title">Confirm</h5>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div> -->
             <form id="formDelete" method="POST">
                 <div class="modal-body text-center">
 
@@ -68,9 +61,6 @@
             <form id="formCRUD" method="POST" action="{{ route('admin.promo.create') }}">
                 <div class="modal-body">
 
-                    <!-- <div class="col-12 success_handling"></div>
-                    <div class="col-12 error_handling"></div> -->
-
                     <input type="hidden" id="id" name="id">
 
                     <div class="row">
@@ -81,14 +71,6 @@
                         <div class="form-group col-12">
                             <label for="photo">Photo</label> 
                             <input type="file" class="form-control" name="photo" accept=".jpg,.jpeg,.png,.svg" id="photo">
-                        </div>
-                        <div class="form-group col-12">
-                            <label for="start_date">Start Date</label>
-                            <input type="text" class="form-control datepicker" id="start_date" name="start_date" placeholder="" required>
-                        </div>
-                        <div class="form-group col-12">
-                            <label for="end_date">End Date</label>
-                            <input type="text" class="form-control datepicker" id="end_date" name="end_date" placeholder="" required>
                         </div>
                         <div class="form-group col-12">
                             <label for="description">Description</label>
@@ -139,8 +121,6 @@
                             return '<img src="{{ URL::asset("uploads") }}/'+data+'" style="width: 100%;height: 5rem;"></img>';
                         }
                     },
-                    {data: 'start_date', name: 'start_date', width: '20%', className: 'dt-center'},
-                    {data: 'end_date', name: 'end_date', width: '20%', className: 'dt-center'},
                     {
                         data: 'action', 
                         name: 'action', 

@@ -58,7 +58,7 @@
 
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Form Products</h4>
+                <h4 class="modal-title">Form Categories</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <form id="formCRUD" method="POST" action="{{ route('admin.categories.create') }}">

@@ -15,7 +15,7 @@
                                 <div class="banner-info">
                                     <div class="container">
                                         <div class="banner-info-bg">
-                                            <h5>{{ $product->description }} <br> </h5>
+                                            <h5>{{ $product->name }}</h5>
                                             <div class="banner-buttons">
                                                 <a class="btn btn-style btn-primary" href="#">Read More</a>
                                                 <!-- <a href="#small-dialog1" class="popup-with-zoom-anim play-view">

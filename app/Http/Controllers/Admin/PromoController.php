@@ -45,8 +45,6 @@ class PromoController extends Controller
                 'name' => 'required',
                 'photo' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
                 'description' => 'required',
-                'start_date' => 'required',
-                'end_date' => 'required',
             ]);
     
             $upload = uploadPhoto($request);
@@ -55,8 +53,6 @@ class PromoController extends Controller
 
         $action = Promo::create([
             'name' => $request->name,
-            'start_date' => $request->start_date,
-            'end_date' => $request->end_date,
             'description' => $request->description,
             'photo' => isset($upload) ? $upload : ''
         ]);
@@ -80,8 +76,6 @@ class PromoController extends Controller
                 'name' => 'required',
                 'photo' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
                 'description' => 'required',
-                'start_date' => 'required',
-                'end_date' => 'required',
             ]);
     
             $upload = uploadPhoto($request);
@@ -98,8 +92,6 @@ class PromoController extends Controller
             $arrPhoto,
             [
                 'name' => $request->name,
-                'start_date' => $request->start_date,
-                'end_date' => $request->end_date,
                 'description' => $request->description
             ]
         );

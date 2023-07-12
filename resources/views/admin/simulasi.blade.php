@@ -8,7 +8,6 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Products Name</th>
                     <th>Photo Simulasi</th>
                     <th>Action</th>
                 </tr>
@@ -54,12 +53,12 @@
     </div>
 
     <div class="modal fade formCRUD" id="myModal">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog">
             <div class="modal-content">
 
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Form Products</h4>
+                <h4 class="modal-title">Form Simulasi</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <form id="formCRUD" method="POST" action="{{ route('admin.simulasi.create') }}">
@@ -71,7 +70,7 @@
                     <input type="hidden" id="id" name="id">
 
                     <div class="row">
-                        <div class="form-group col-6">
+                        <!-- <div class="form-group col-6">
                             <label for="products_id">Product</label>
                             <select name="products_id" id="products_id" class="form-control" required>
                                 <option value="" disabled selected>Pilih Product</option>
@@ -79,8 +78,8 @@
                                     <option value="{{$data->id}}">{{$data->name}}</option>
                                 @endforeach
                             </select>
-                        </div>
-                        <div class="form-group col-6">
+                        </div> -->
+                        <div class="form-group col-12">
                             <label for="photo">Photo</label> 
                             <input type="file" class="form-control" name="photo" accept=".jpg,.jpeg,.png,.svg" id="photo">
                         </div>
@@ -109,7 +108,6 @@
                 ajax: "{{ route('admin.simulasi.datatable') }}",
                 columns: [
                     {data: 'DT_RowIndex', name: 'DT_RowIndex', width: '5%', className: 'dt-center', orderable: false},
-                    {data: 'product_name', name: 'product_name', width: '20%', className: 'dt-center'},
                     {
                         data: 'photo', 
                         name: 'photo',

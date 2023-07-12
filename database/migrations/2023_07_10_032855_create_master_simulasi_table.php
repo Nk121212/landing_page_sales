@@ -15,7 +15,6 @@ class CreateMasterSimulasiTable extends Migration
     {
         Schema::create('master_simulasi', function (Blueprint $table) {
             $table->id();
-            $table->integer('products_id');
             $table->string('photo');
             $table->timestamps();
         });

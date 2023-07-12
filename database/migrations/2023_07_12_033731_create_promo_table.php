@@ -17,9 +17,7 @@ class CreatePromoTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('photo');
-            $table->string('description')->nullable();
-            $table->date('start_date');
-            $table->date('end_date');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
