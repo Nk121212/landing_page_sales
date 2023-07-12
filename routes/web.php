@@ -54,6 +54,13 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
     Route::post('/testimoni/update', [App\Http\Controllers\Admin\TestimoniController::class, 'update'])->name('admin.testimoni.update');
     Route::post('/testimoni/delete', [App\Http\Controllers\Admin\TestimoniController::class, 'delete'])->name('admin.testimoni.delete');
 
+    Route::get('/news', [App\Http\Controllers\Admin\NewsController::class, 'index'])->name('admin.news');
+    Route::get('/news/datatable', [App\Http\Controllers\Admin\NewsController::class, 'datatable'])->name('admin.news.datatable');
+    Route::post('/news/create', [App\Http\Controllers\Admin\NewsController::class, 'create'])->name('admin.news.create');
+    Route::post('/news/profile', [App\Http\Controllers\Admin\NewsController::class, 'profile'])->name('admin.news.profile');
+    Route::post('/news/update', [App\Http\Controllers\Admin\NewsController::class, 'update'])->name('admin.news.update');
+    Route::post('/news/delete', [App\Http\Controllers\Admin\NewsController::class, 'delete'])->name('admin.news.delete');
+
 });
 
 Route::group(['prefix' => 'guest'], function() {
