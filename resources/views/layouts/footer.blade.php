@@ -21,9 +21,12 @@
             <div class="right-side">
               <div class="row sub-columns">
                 <div class="col-lg-4 col-md-6 sub-one-left pr-lg-4">
-                  <h2><a class="navbar-brand" href="index.html">
-                      <span>C</span>arserving
-                    </a></h2>
+                  <h2>
+                    <a class="navbar-brand" href="#">
+                      <!-- <span>C</span>arserving -->
+                      <img src="{{ asset('assets/images/logo.png') }}" alt="No Logo" style="width: 86%;">
+                    </a>
+                  </h2>
                   <!-- if logo is image enable this   
 										<a class="navbar-brand" href="#index.html">
 											<img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
@@ -51,9 +54,9 @@
     <div class="mid-footer-gd sub-two-right">
 
                     <ul>
-                      <li><a href="about.html"><span class="fa fa-angle-double-right mr-2"></span> About</a>
+                      <li><a href="#"><span class="fa fa-angle-double-right mr-2"></span> About</a>
                       </li>
-                      <li><a href="services.html"><span class="fa fa-angle-double-right mr-2"></span> Services</a>
+                      <li><a href="#"><span class="fa fa-angle-double-right mr-2"></span> Services</a>
                       </li>
                       <li><a href="#"><span class="fa fa-angle-double-right mr-2"></span> Car Wash</a>
                       </li>
@@ -67,7 +70,7 @@
                           Orphan</a>
                       </li>
                       <li><a href="#support"><span class="fa fa-angle-double-right mr-2"></span>Career</a></li>
-                      <li><a href="contact.html"><span class="fa fa-angle-double-right mr-2"></span>Contact US</a>
+                      <li><a href="#"><span class="fa fa-angle-double-right mr-2"></span>Contact US</a>
                       </li>
                     </ul>
                   </div>

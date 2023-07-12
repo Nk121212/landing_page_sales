@@ -17,7 +17,7 @@
                                         <div class="banner-info-bg">
                                             <h5>{{ $product->description }} <br> </h5>
                                             <div class="banner-buttons">
-                                                <a class="btn btn-style btn-primary" href="about.html">Read More</a>
+                                                <a class="btn btn-style btn-primary" href="#">Read More</a>
                                                 <!-- <a href="#small-dialog1" class="popup-with-zoom-anim play-view">
                                                     <span class="video-play-icon">
                                                     <span class="fa fa-play"></span>
@@ -245,27 +245,28 @@
     </div>
 </section>
 
-<div class="w3l-bottom-grids">
-    <div class="container-fluid px-0">
-        <div class="bottomhny-grids-sec">
-            <div class="bottomhny-1">
-                <div class="bottomhny-gd-ingf">
-                    <h4>Satisfaction Guaranteed or Your Dent Back.</h4>
-                </div>
+@foreach(getPromo() as $promo)
+<section class="w3l-content-3 mt-2">
+    <!-- /content-3-main-->
+    <div class="content-3-mian py-5">
+      <div class="container py-lg-5">
+        <div class="content-info-in row">
+          <div class="col-lg-6">
+            <img src="{{ asset('uploads') }}/{{ $promo->photo }}" alt="" class="img-fluid">
+          </div>
+          <div class="col-lg-6 mt-lg-0 mt-5 about-right-faq align-self  pl-lg-5">
+            <div class="title-content text-left mb-2">
+              <h6 class="sub-title">Promo</h6>
+              <h3 class="hny-title">{{ $promo->name }}</h3>
             </div>
-            <div class="bottomhny-1 bottomhny-2">
-                <div class="bottomhny-gd-ingf">
-                    <h4>Caring For Your Car The Way You Would.</h4>
-                </div>
-            </div>
-            <div class="bottomhny-1 bottomhny-1-img">
-                <div class="bottomhny-gd-ingf">
-
-                </div>
-            </div>
+            <p class="mt-3">{{ $promo->description }}</p>
+            <!-- <a href="about.html" class="btn btn-style btn-primary mt-md-5 mt-4">Read More</a> -->
+          </div>
         </div>
-    </div>
-</div>
+      </div>
+  </div>
+</section>
+@endforeach
 
 <section class="w3l-testimonials">
     <div class="testimonials py-5">

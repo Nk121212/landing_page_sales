@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Categories;
 use App\Models\Products;
 use App\Models\Testimoni;
+use App\Models\Promo;
 
 if(!function_exists('getProducts')){
 
@@ -32,6 +33,16 @@ if(!function_exists('getTestimoni')){
     }
 
 }
+
+if(!function_exists('getPromo')){
+
+    function getPromo(){
+        $data = Promo::all();
+        return $data;
+    }
+
+}
+
 
 if(!function_exists('uploadFile')){
 

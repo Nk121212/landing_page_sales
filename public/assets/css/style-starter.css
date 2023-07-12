@@ -16282,7 +16282,7 @@ button.owl-next {
 }
 
 .w3l-bottom-grids .bottomhny-1-img {
-  background: url(../images/banner2.jpg) no-repeat top;
+  /* background: url(../images/banner2.jpg) no-repeat top; */
   background-size: cover;
   -webkit-background-size: cover;
   -o-background-size: cover;
