@@ -78,6 +78,9 @@ Author URL: http://w3layouts.com
                 <li class="nav-item news">
                     <a class="nav-link" href="{{ route('admin.news') }}">News</a>
                 </li>
+                <li class="nav-item promo">
+                    <a class="nav-link" href="{{ route('admin.promo') }}">Promo</a>
+                </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{{ route('logout') }}"
                       onclick="event.preventDefault();
