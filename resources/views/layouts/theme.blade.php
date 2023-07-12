@@ -10,6 +10,8 @@ Author URL: http://w3layouts.com
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="csrf-token" content="{{ csrf_token() }}">
+  <meta name="ad.orientation" content="portrait">
+
   <title>Landing Page Hyundai</title>
   <!-- Template CSS -->
   <link href="//fonts.googleapis.com/css?family=Poppins:300,400,400i,500,600,700&display=swap" rel="stylesheet">
@@ -19,6 +21,31 @@ Author URL: http://w3layouts.com
   <link rel="stylesheet" href="{{ asset('assets/datatables/jquery.dataTables.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/datepicker/bootstrap-datepicker3.css') }}">
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+  <style>
+    .w3l-main-slider .banner-view {
+        background-size: cover;
+        min-height: calc(100vh - 30px);
+        position: relative;
+        z-index: 0;
+        display: grid;
+        align-items: center;
+    }
+
+    .w3l-main-slider .banner-top1 {
+        background: url("{{ asset('assets/images/banner2.jpg') }}") no-repeat center;
+        background-size: cover;
+    }
+
+    .w3l-main-slider .banner-top2 {
+        background: url("{{ asset('assets/images/banner3.jpg') }}") no-repeat center;
+        background-size: cover;
+    }
+
+    .w3l-main-slider .banner-top3 {
+        background: url("{{ asset('assets/images/banner4.jpg') }}") no-repeat center;
+        background-size: cover;
+    }
+  </style>
 </head>
 
 <body>
@@ -135,7 +162,6 @@ Author URL: http://w3layouts.com
   </header>
 
   <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
-  <!-- disable body scroll which navbar is in active -->
   <script src="{{ asset('assets/js/jquery.magnific-popup.min.js') }}"></script>
   
   <script src="{{ asset('assets/js/owl.carousel.js') }}"></script>
@@ -153,7 +179,7 @@ Author URL: http://w3layouts.com
 
   <div class="fixed-top text-right text-white show-my-toast" style="width: 25%;"></div>
 
-  <div style="margin-top: 2%;margin-bottom: 4%;">
+  <div style="margin-top: 2%;margin-bottom: 10%;">
     <section>
         <main class="py-4">
             @yield('content')

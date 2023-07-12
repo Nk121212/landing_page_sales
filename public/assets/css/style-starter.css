@@ -15115,7 +15115,7 @@ nav ul li a:hover {
   -ms-transition: 0.3s ease-in;
 }
 
-.w3l-main-slider .banner-view {
+/* .w3l-main-slider .banner-view {
   background: url(../images/banner1.jpg) no-repeat center;
   background-size: cover;
   min-height: calc(100vh - 30px);
@@ -15123,9 +15123,9 @@ nav ul li a:hover {
   z-index: 0;
   display: grid;
   align-items: center;
-}
+} */
 
-.w3l-main-slider .banner-top1 {
+/* .w3l-main-slider .banner-top1 {
   background: url(../images/banner2.jpg) no-repeat center;
   background-size: cover;
 }
@@ -15138,7 +15138,7 @@ nav ul li a:hover {
 .w3l-main-slider .banner-top3 {
   background: url(../images/banner4.jpg) no-repeat center;
   background-size: cover;
-}
+} */
 
 .w3l-main-slider .banner-view:before {
   content: "";

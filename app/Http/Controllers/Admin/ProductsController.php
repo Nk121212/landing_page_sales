@@ -57,7 +57,7 @@ class ProductsController extends Controller
         $action = Products::create([
             'name' => $request->name,
             'price' => str_replace(',', '', $request->price),
-            'embed' => $request->embed,
+            'embed' => str_replace('/watch?v=', '/embed/', $request->embed),
             'categories_id' => $request->categories_id,
             'description' => $request->description,
             'photo' => isset($upload) ? $upload : ''
@@ -101,7 +101,7 @@ class ProductsController extends Controller
             [
                 'name' => $request->name,
                 'price' => str_replace(',', '', $request->price),
-                'embed' => $request->embed,
+                'embed' => str_replace('/watch?v=', '/embed/', $request->embed),
                 'categories_id' => $request->categories_id,
                 'description' => $request->description
             ]

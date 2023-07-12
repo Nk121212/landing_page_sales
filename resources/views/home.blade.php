@@ -1,17 +1,429 @@
 @extends('layouts.theme')
 
 @section('content')
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
 
-                <div class="card-body">
-                    Home Nih
+<section class="w3l-main-slider position-relative mt-1" id="home">
+    <div class="companies20-content">
+      <div class="owl-one owl-carousel owl-theme owl-loaded owl-drag">
+        <div class="owl-stage-outer">
+            <div class="owl-stage" style="transform: translate3d(-2698px, 0px, 0px); transition: all 0s ease 0s; width: 10792px;">
+                @foreach(getProducts() as $product)
+                <div class="owl-item active" style="width: 1349px;">
+                    <div class="item">
+                        <li>
+                            <div class="slider-info banner-view banner-top2 bg bg2" style="background: url('{{ asset('uploads') }}/{{ $product->photo }}') no-repeat center;">
+                                <div class="banner-info">
+                                    <div class="container">
+                                        <div class="banner-info-bg">
+                                            <h5>{{ $product->description }} <br> </h5>
+                                            <div class="banner-buttons">
+                                                <a class="btn btn-style btn-primary" href="about.html">Read More</a>
+                                                <!-- <a href="#small-dialog1" class="popup-with-zoom-anim play-view">
+                                                    <span class="video-play-icon">
+                                                    <span class="fa fa-play"></span>
+                                                    </span>
+                                                    <h6>How We Works</h6>
+                                                </a>
+                                            <div id="small-dialog2" class="zoom-anim-dialog mfp-hide">
+                                                <iframe src="" allow="autoplay; fullscreen" allowfullscreen=""></iframe>
+                                            </div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </div>
+                </div>
+                @endforeach
+                
+                <!-- <div class="owl-item cloned" style="width: 1349px;">
+                    <div class="item">
+                        <li>
+                            <div class="slider-info banner-view banner-top3 bg bg2">
+                                <div class="banner-info">
+                                    <div class="container">
+                                        <div class="banner-info-bg">
+                                            <h5>Honest Service For You Car Care.</h5>
+                                            <div class="banner-buttons">
+                                                <a class="btn btn-style btn-primary" href="about.html">Read More</a>
+                                                <a href="#small-dialog3" class="popup-with-zoom-anim play-view">
+                                                    <span class="video-play-icon">
+                                                    <span class="fa fa-play"></span>
+                                                    </span>
+                                                    <h6>How We Works</h6>
+
+                                                </a>
+                                                <div id="small-dialog" class="zoom-anim-dialog mfp-hide">
+                                                    <iframe src="https://player.vimeo.com/video/425349644" allow="autoplay; fullscreen" allowfullscreen=""></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </div>
+                </div>
+                <div class="owl-item cloned" style="width: 1349px;">
+                    <div class="item">
+                        <li>
+                            <div class="slider-info banner-view bg bg2">
+                                <div class="banner-info">
+                                    <div class="container">
+                                        <div class="banner-info-bg">
+                                            <h5>We are qualified &amp; <br> professional.</h5>
+                                            <div class="banner-buttons">
+                                                <a class="btn btn-style btn-primary" href="about.html">Read More</a>
+                                                <a href="#small-dialog" class="popup-with-zoom-anim play-view">
+                                                    <span class="video-play-icon">
+                                                    <span class="fa fa-play"></span>
+                                                    </span>
+                                                    <h6>How We Works</h6>
+                                                </a>
+                                                
+                                                <div id="small-dialog" class="zoom-anim-dialog mfp-hide">
+                                                    <iframe src="https://player.vimeo.com/video/425349644" allow="autoplay; fullscreen" allowfullscreen=""></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </div>
+                </div>
+                <div class="owl-item" style="width: 1349px;">
+                    <div class="item">
+                        <li>
+                            <div class="slider-info  banner-view banner-top1 bg bg2">
+                                <div class="banner-info">
+                                    <div class="container">
+                                        <div class="banner-info-bg">
+                                            <h5>Honest Service For You Car Care.</h5>
+                                            <div class="banner-buttons">
+                                                <a class="btn btn-style btn-primary" href="about.html">Read More</a>
+                                                <a href="#small-dialog" class="popup-with-zoom-anim play-view">
+                                                    <span class="video-play-icon">
+                                                    <span class="fa fa-play"></span>
+                                                    </span>
+                                                    <h6>How We Works</h6>
+                                                </a>
+                                                
+                                                <div id="small-dialog" class="zoom-anim-dialog mfp-hide">
+                                                    <iframe src="https://player.vimeo.com/video/425349644" allow="autoplay; fullscreen" allowfullscreen=""></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </div>
+                </div>
+                <div class="owl-item" style="width: 1349px;">
+                    <div class="item">
+                        <li>
+                            <div class="slider-info banner-view banner-top2 bg bg2">
+                            <div class="banner-info">
+                                <div class="container">
+                                    <div class="banner-info-bg">
+                                        <h5>We are qualified &amp; <br> professional</h5>
+                                        <div class="banner-buttons">
+                                        <a class="btn btn-style btn-primary" href="about.html">Read More</a>
+                                        <a href="#small-dialog1" class="popup-with-zoom-anim play-view">
+                                            <span class="video-play-icon">
+                                            <span class="fa fa-play"></span>
+                                            </span>
+                                            <h6>How We Works</h6>
+                                        </a>
+                                        
+                                        <div id="small-dialog2" class="zoom-anim-dialog mfp-hide">
+                                            <iframe src="https://player.vimeo.com/video/425349644" allow="autoplay; fullscreen" allowfullscreen=""></iframe>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </li>
+                    </div>
+                </div>
+                <div class="owl-item" style="width: 1349px;">
+                    <div class="item">
+                        <li>
+                            <div class="slider-info banner-view banner-top3 bg bg2">
+                                <div class="banner-info">
+                                    <div class="container">
+                                        <div class="banner-info-bg">
+                                            <h5>Honest Service For You Car Care.</h5>
+                                            <div class="banner-buttons">
+                                                <a class="btn btn-style btn-primary" href="about.html">Read More</a>
+                                                <a href="#small-dialog3" class="popup-with-zoom-anim play-view">
+                                                    <span class="video-play-icon">
+                                                    <span class="fa fa-play"></span>
+                                                    </span>
+                                                    <h6>How We Works</h6>
+
+                                                </a>
+                                                
+                                                <div id="small-dialog" class="zoom-anim-dialog mfp-hide">
+                                                    <iframe src="https://player.vimeo.com/video/425349644" allow="autoplay; fullscreen" allowfullscreen=""></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </div>
+                </div>
+                <div class="owl-item cloned" style="width: 1349px;">
+                    <div class="item">
+                        <li>
+                            <div class="slider-info banner-view bg bg2">
+                                <div class="banner-info">
+                                    <div class="container">
+                                        <div class="banner-info-bg">
+                                            <h5>We are qualified &amp; <br> professional.</h5>
+                                            <div class="banner-buttons">
+                                                <a class="btn btn-style btn-primary" href="about.html">Read More</a>
+                                                <a href="#small-dialog" class="popup-with-zoom-anim play-view">
+                                                    <span class="video-play-icon">
+                                                    <span class="fa fa-play"></span>
+                                                    </span>
+                                                    <h6>How We Works</h6>
+                                                </a>
+                                                
+                                                <div id="small-dialog" class="zoom-anim-dialog mfp-hide">
+                                                    <iframe src="https://player.vimeo.com/video/425349644" allow="autoplay; fullscreen" allowfullscreen=""></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </div>
+                </div>
+                <div class="owl-item cloned" style="width: 1349px;">
+                    <div class="item">
+                        <li>
+                            <div class="slider-info  banner-view banner-top1 bg bg2">
+                                <div class="banner-info">
+                                    <div class="container">
+                                        <div class="banner-info-bg">
+                                            <h5>Honest Service For You Car Care.</h5>
+                                            <div class="banner-buttons">
+                                                <a class="btn btn-style btn-primary" href="about.html">Read More</a>
+                                                <a href="#small-dialog" class="popup-with-zoom-anim play-view">
+                                                    <span class="video-play-icon">
+                                                    <span class="fa fa-play"></span>
+                                                    </span>
+                                                    <h6>How We Works</h6>
+                                                </a>
+                                                
+                                                <div id="small-dialog" class="zoom-anim-dialog mfp-hide">
+                                                    <iframe src="https://player.vimeo.com/video/425349644" allow="autoplay; fullscreen" allowfullscreen=""></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <div class="owl-nav">
+            <button type="button" role="presentation" class="owl-prev"><span aria-label="Previous"> 
+                <span class="fa fa-angle-left"></span> </span></button><button type="button" role="presentation" class="owl-next">
+                    <span aria-label="Next"> <span class="fa fa-angle-right"></span> </span></button></div><div class="owl-dots">
+                        <button role="button" class="owl-dot active"><span></span></button><button role="button" class="owl-dot">
+                            <span></span></button><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot"><span></span></button></div></div>
+    </div>
+</section>
+
+<div class="w3l-bottom-grids">
+    <div class="container-fluid px-0">
+        <div class="bottomhny-grids-sec">
+            <div class="bottomhny-1">
+                <div class="bottomhny-gd-ingf">
+                    <h4>Satisfaction Guaranteed or Your Dent Back.</h4>
+                </div>
+            </div>
+            <div class="bottomhny-1 bottomhny-2">
+                <div class="bottomhny-gd-ingf">
+                    <h4>Caring For Your Car The Way You Would.</h4>
+                </div>
+            </div>
+            <div class="bottomhny-1 bottomhny-1-img">
+                <div class="bottomhny-gd-ingf">
+
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<section class="w3l-testimonials">
+    <div class="testimonials py-5">
+        <div class="container text-center py-lg-3">
+            <div class="title-content text-center mb-lg-5 mb-4">
+                <h6 class="sub-title">Client Testimonials</h6>
+                <h3 class="hny-title">100% approved by customers</h3>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="owl-testimonial owl-carousel owl-theme owl-loaded owl-drag">
+
+                        <div class="owl-stage-outer">
+                            @php 
+                                $i=0;
+                            @endphp
+                            @foreach(getTestimoni() as $testi)
+                                @if($i == 0)
+                                    <div class="owl-stage" style="transform: translate3d(-4849px, 0px, 0px); transition: all 0.25s ease 0s; width: 7760px;"><div class="owl-item cloned" style="width: 969.984px;">
+                                        <div class="item">
+                                            <div class="slider-info mt-lg-4 mt-3">
+                                                <div class="img-circle">
+                                                    <img src="{{ asset('uploads') }}/{{ $testi->photo }}" class="img-fluid rounded" alt="client image">
+                                                </div>
+                                                <div class="message">
+                                                    {{ $testi->description }}
+                                                </div>
+                                                <div class="name">- {{ $testi->name }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @else
+                                    <div class="owl-item" style="width: 969.984px;">
+                                        <div class="item">
+                                            <div class="slider-info mt-lg-4 mt-3">
+                                                <div class="img-circle">
+                                                    <img src="{{ asset('uploads') }}/{{ $testi->photo }}" class="img-fluid rounded" alt="client image">
+                                                </div>
+                                                <div class="message">
+                                                    {{ $testi->description }}
+                                                </div>
+                                                <div class="name">- {{ $testi->name }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                @endif
+
+                                @php
+                                    $i++
+                                @endphp
+
+                            @endforeach
+                            <!-- <div class="owl-item cloned" style="width: 969.984px;">
+                                <div class="item">
+                                    <div class="slider-info mt-lg-4 mt-3">
+                                        <div class="img-circle">
+                                            <img src="assets/images/team4.jpg" class="img-fluid rounded" alt="client image">
+                                        </div>
+                                        <div class="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea sit
+                                            id
+                                            accusantium
+                                            officia quod quasi necessitatibus perspiciatis Harum error provident
+                                            quibusdam tenetur.
+                                        </div>
+                                        <div class="name">- Elizabeth</div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <!-- <div class="owl-item" style="width: 969.984px;">
+                                <div class="item">
+                                    <div class="slider-info mt-lg-4 mt-3">
+                                        <div class="img-circle">
+                                            <img src="assets/images/team1.jpg" class="img-fluid rounded" alt="client image">
+                                        </div>
+                                        <div class="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea sit
+                                                id
+                                                accusantium
+                                                officia quod quasi necessitatibus perspiciatis Harum error provident
+                                                quibusdam tenetur.
+                                        </div>
+                                        <div class="name">- Jenkins</div>
+
+                                    </div>
+                                </div>
+                            </div> -->
+                            <!-- <div class="owl-item" style="width: 969.984px;">
+                                <div class="item">
+                                    <div class="slider-info mt-lg-4 mt-3">
+                                        <div class="img-circle">
+                                            <img src="assets/images/team3.jpg" class="img-fluid rounded" alt="client image">
+                                        </div>
+                                        <div class="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea sit
+                                            id
+                                            accusantium
+                                            officia quod quasi necessitatibus perspiciatis Harum error provident
+                                            quibusdam tenetur.
+                                        </div>
+                                        <div class="name">- Kiss Kington</div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <!-- <div class="owl-item active" style="width: 969.984px;">
+                                <div class="item">
+                                    <div class="slider-info mt-lg-4 mt-3">
+                                        <div class="img-circle">
+                                            <img src="assets/images/team4.jpg" class="img-fluid rounded" alt="client image">
+                                        </div>
+                                        <div class="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea sit
+                                            id
+                                            accusantium
+                                            officia quod quasi necessitatibus perspiciatis Harum error provident
+                                            quibusdam tenetur.
+                                        </div>
+                                        <div class="name">- Elizabeth</div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <!-- <div class="owl-item cloned" style="width: 969.984px;">
+                                <div class="item">
+                                    <div class="slider-info mt-lg-4 mt-3">
+                                        <div class="img-circle">
+                                            <img src="assets/images/team1.jpg" class="img-fluid rounded" alt="client image">
+                                        </div>
+                                            <div class="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea sit
+                                                id
+                                                accusantium
+                                                officia quod quasi necessitatibus perspiciatis Harum error provident
+                                                quibusdam tenetur.
+                                            </div>
+                                            <div class="name">- Jenkins</div>
+
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!-- <div class="owl-item cloned" style="width: 969.984px;">
+                                    <div class="item">
+                                        <div class="slider-info mt-lg-4 mt-3">
+                                            <div class="img-circle">
+                                                <img src="assets/images/team2.jpg" class="img-fluid rounded" alt="client image">
+                                            </div>
+                                            <div class="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea sit
+                                                id
+                                                accusantium
+                                                officia quod quasi necessitatibus perspiciatis Harum error provident
+                                                quibusdam tenetur.
+                                            </div>
+                                            <div class="name">- John Balmer</div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous"> <span class="fa fa-angle-left"></span> </span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next"> <span class="fa fa-angle-right"></span> </span></button></div><div class="owl-dots"><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot active"><span></span></button></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+
 @endsection
