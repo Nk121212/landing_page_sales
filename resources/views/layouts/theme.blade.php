@@ -31,7 +31,7 @@ Author URL: http://w3layouts.com
         align-items: center;
     }
 
-    .w3l-main-slider .banner-top1 {
+    /* .w3l-main-slider .banner-top1 {
         background: url("{{ asset('assets/images/banner2.jpg') }}") no-repeat center;
         background-size: cover;
     }
@@ -44,6 +44,72 @@ Author URL: http://w3layouts.com
     .w3l-main-slider .banner-top3 {
         background: url("{{ asset('assets/images/banner4.jpg') }}") no-repeat center;
         background-size: cover;
+    } */
+
+    .wrapper-footer{ 
+        position:fixed;
+        bottom:5px;
+        left:20px;
+        z-index:1000;
+    }
+
+    .wrapper-footer a:nth-child(1){
+        background-color:green;
+    }
+
+    .wrapper-footer a:nth-child(2){
+        background-color:blue;
+    }
+      
+    .wrapper-footer a:nth-child(3){
+        
+        animation: 0.7s ease-out 0s 1 FadeIn;
+        transition:all 0.3s;
+    }
+
+
+    .wrapper-footer a:hover:nth-child(3){
+        
+        background-color:red;
+    }
+    
+    
+    @keyframes FadeIn {
+        0% {
+        transform:rotate(0deg);
+        }
+        100% {
+          transform:rotate(360deg); 
+        }
+    }
+
+
+    .hide{
+        position:absolute;
+        bottom:0px !important;
+        z-index:-1;
+        transition:all 2s;
+        
+    }
+
+    .social-footer{
+        
+    }
+
+    .wrapper-footer a{ 
+        height:45px;
+        width:46px;
+        background:#000;
+        padding:10px;
+        display:flex;
+        flex-direction:row;
+        border-radius:50%;
+        justify-content:center;
+        align-items:center; 
+        text-decoration:none;
+        color:#fff;
+        margin:2px;
+        margin-top:1px;
     }
   </style>
 </head>
@@ -144,19 +210,19 @@ Author URL: http://w3layouts.com
           <!-- /search popup -->
         </div>
         <!-- toggle switch for light and dark theme -->
-        <!-- <div class="mobile-position">
+        <div class="mobile-position">
           <nav class="navigation">
             <div class="theme-switch-wrapper">
               <label class="theme-switch" for="checkbox">
                 <input type="checkbox" id="checkbox">
                 <div class="mode-container">
-                  <i class="gg-sun"></i>
-                  <i class="gg-moon"></i>
+                  <!-- <i class="gg-sun"></i>
+                  <i class="gg-moon"></i> -->
                 </div>
               </label>
             </div>
           </nav>
-        </div> -->
+        </div>
       </nav>
     </div>
   </header>
@@ -263,18 +329,18 @@ Author URL: http://w3layouts.com
         margin: 0,
         nav: false,
         responsiveClass: true,
-        autoplay: false,
-        autoplayTimeout: 5000,
+        autoplay: true,
+        autoplayTimeout: 2000,
         autoplaySpeed: 1000,
         autoplayHoverPause: false,
         responsive: {
           0: {
             items: 1,
-            nav: false
+            nav: true
           },
           480: {
             items: 1,
-            nav: false
+            nav: true
           },
           667: {
             items: 1,
@@ -297,8 +363,8 @@ Author URL: http://w3layouts.com
         margin: 0,
         nav: false,
         responsiveClass: true,
-        autoplay: false,
-        autoplayTimeout: 5000,
+        autoplay: true,
+        autoplayTimeout: 2000,
         autoplaySpeed: 1000,
         autoplayHoverPause: false,
         responsive: {

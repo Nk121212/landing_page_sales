@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
+use App\Http\Controllers\Guest\ProductsController as guestProduct;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,6 +74,8 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
 Route::group(['prefix' => 'guest'], function() {
     
     Route::get('/products', [App\Http\Controllers\Guest\ProductsController::class, 'index'])->name('guest.products');
+    Route::get('/products/detail', [App\Http\Controllers\Guest\ProductsController::class, 'detail'])->name('guest.products.detail');
+
     Route::get('/news', [App\Http\Controllers\Guest\CategoriesController::class, 'index'])->name('guest.news');
     Route::get('/simulasi', [App\Http\Controllers\Guest\SimulasiController::class, 'index'])->name('guest.simulasi');
     Route::get('/testimoni', [App\Http\Controllers\Guest\TestimoniController::class, 'index'])->name('guest.testimoni');

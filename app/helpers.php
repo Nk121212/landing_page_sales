@@ -57,4 +57,16 @@ if(!function_exists('uploadFile')){
 
 }
 
+if(!function_exists('rupiah')){
+
+    function rupiah($angka){
+ 
+		$data = "Rp " . number_format($angka,0,',','.');
+
+	    return $data;
+
+    }
+
+}
+
 ?>

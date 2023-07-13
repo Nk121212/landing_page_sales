@@ -3,37 +3,17 @@
       <div class="footer-hny-grids py-5">
         <div class="container py-lg-4">
           <div class="text-txt">
-            <div class="row newsletter-grids-footer">
-              <div class="col-lg-6 newsletter-text pr-lg-5">
-                <h3 class="hny-title two">Newsletter</h3>
-                <h4>Sign up for our monthly newsletter to get the latest news, volunteer opportunities,
-                </h4>
-              </div>
-              <div class="col-lg-6 newsletter-right">
-                <form action="#" method="post" class="footer-newsletter">
-
-                  <input type="email" name="email" class="form-input" placeholder="Enter your email..">
-
-                  <button type="submit" class="btn">Subscribe</button>
-                </form>
-              </div>
-            </div>
             <div class="right-side">
               <div class="row sub-columns">
                 <div class="col-lg-4 col-md-6 sub-one-left pr-lg-4">
-                  <h2>
+                  <!-- <h2>
                     <a class="navbar-brand" href="#">
-                      <!-- <span>C</span>arserving -->
                       <img src="{{ asset('assets/images/logo.png') }}" alt="No Logo" style="width: 86%;">
                     </a>
-                  </h2>
-                  <!-- if logo is image enable this   
-										<a class="navbar-brand" href="#index.html">
-											<img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
-										</a> -->
-                  <p class="pr-lg-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  </h2> -->
+                  <!-- <p class="pr-lg-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Consequuntur hic odio voluptatem tenetur consequatur.Lorem ipsum dolor sit amet
-                    consectetur adipisicing elit. </p>
+                    consectetur adipisicing elit. </p> -->
                   <div class="columns-2">
                     <ul class="social">
                       <li><a href="#facebook"><span class="fa fa-facebook" aria-hidden="true"></span></a>
@@ -50,8 +30,18 @@
                   </div>
                 </div>
                 <div class="col-lg-4 col-md-6 sub-one-left">
-                  <h6>Our Services</h6>
-    <div class="mid-footer-gd sub-two-right">
+
+                  <h2>
+                      <a class="navbar-brand" href="#">
+                        <img src="{{ asset('assets/images/logo.png') }}" alt="No Logo" style="width: 86%;">
+                      </a>
+                    </h2>
+
+                    <p class="pr-lg-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Consequuntur hic odio voluptatem tenetur consequatur.Lorem ipsum dolor sit amet
+                    consectetur adipisicing elit. </p>
+                  <!-- <h6>Our Services</h6>
+                  <div class="mid-footer-gd sub-two-right">
 
                     <ul>
                       <li><a href="#"><span class="fa fa-angle-double-right mr-2"></span> About</a>
@@ -73,7 +63,7 @@
                       <li><a href="#"><span class="fa fa-angle-double-right mr-2"></span>Contact US</a>
                       </li>
                     </ul>
-                  </div>
+                  </div> -->
                 </div>
                 <div class="col-lg-4 col-md-6 sub-one-left">
                   <h6>Contact Info</h6>
@@ -106,9 +96,17 @@
       </div>
       <!-- copyright -->
       <!-- move top -->
-      <button onclick="topFunction()" id="movetop" title="Go to top" style="display: block;">
+      <button class="movetop" onclick="topFunction()" id="movetop" title="Go to top" style="display: block;">
         <span class="fa fa-long-arrow-up" aria-hidden="true"></span>
       </button>
+
+      <div class="wrapper-footer">
+          <a class="social-footer" target="_blank" href="https://wa.me/6281355538777"><i class="fa fa-whatsapp"></i></a>
+          <a class="social-footer" href="tel:6281355538777"> <i class="fa fa-phone"></i></a>
+          <a class="close-button"> 
+            <i class="fa fa-close"></i>
+          </a>
+      </div>
       
 
     </section>
