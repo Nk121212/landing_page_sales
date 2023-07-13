@@ -19,7 +19,12 @@ class CategoriesController extends Controller
 
     public function index(){
         // dd(getCategori());
-        return view('admin.categories');
+        $arrParam = [
+            'createUrl' => route('admin.categories.create'),
+            'updateUrl' => route('admin.categories.update')
+        ];
+
+        return view('admin.categories')->with(['data' => $arrParam]);
     }
 
     public function datatable(Request $request){

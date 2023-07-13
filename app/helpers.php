@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Route;
 use App\Models\Categories;
 use App\Models\Products;
 use App\Models\Testimoni;
@@ -47,11 +48,29 @@ if(!function_exists('getPromo')){
 if(!function_exists('uploadFile')){
 
     function uploadPhoto(Request $request){
- 
-		$imageName = time().'.'.$request->photo->getClientOriginalExtension();
-        $upload = $request->photo->move(public_path('/uploads'), $imageName);
 
-        return $imageName;
+        // dd(Route::currentRouteName());
+
+        // dd();
+
+        $explode = explode(".", Route::currentRouteName());
+        $prefix_file_name = $explode[1];
+
+        // dd($request);
+        $imageName = '';
+        $brosurName = '';
+        $fileNameTrim = (isset($request->name)) ? $request->name : $request->judul;
+        if(isset($request->photo)){
+            $imageName = $prefix_file_name.'_'.trim($fileNameTrim, " ").'.'.$request->photo->getClientOriginalExtension();
+            $request->photo->move(public_path('/uploads'), $imageName);
+        }
+
+        if(isset($request->brosur)){
+            $brosurName = $prefix_file_name.'_brosur_'.trim($fileNameTrim, " ").'.'.$request->brosur->getClientOriginalExtension();
+            $request->brosur->move(public_path('/uploads'), $brosurName);
+        }
+
+        return ['image' => $imageName, 'brosur' => $brosurName];
 
     }
 

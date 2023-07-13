@@ -18,7 +18,12 @@ class PromoController extends Controller
 
     public function index(){
         // dd(getCategori());
-        return view('admin.promo');
+        $arrParam = [
+            'createUrl' => route('admin.promo.create'),
+            'updateUrl' => route('admin.promo.update')
+        ];
+
+        return view('admin.promo')->with(['data' => $arrParam]);
     }
 
     public function datatable(Request $request){
@@ -54,7 +59,7 @@ class PromoController extends Controller
         $action = Promo::create([
             'name' => $request->name,
             'description' => $request->description,
-            'photo' => isset($upload) ? $upload : ''
+            'photo' => isset($upload) ? $upload['image'] : ''
         ]);
 
         return response()->json(['message' => 'success insert data'], 201);
@@ -83,7 +88,7 @@ class PromoController extends Controller
         }
 
         if(isset($upload)){
-            $arrPhoto = ['photo' => $upload];
+            $arrPhoto = ['photo' => $upload['image']];
         }else{
             $arrPhoto = [];
         }

@@ -17,7 +17,13 @@ class TestimoniController extends Controller
     }
 
     public function index(){
-        return view('admin.testimoni');
+
+        $arrParam = [
+            'createUrl' => route('admin.testimoni.create'),
+            'updateUrl' => route('admin.testimoni.update')
+        ];
+
+        return view('admin.testimoni')->with(['data' => $arrParam]);
     }
 
     public function datatable(Request $request){
@@ -51,7 +57,7 @@ class TestimoniController extends Controller
 
         $action = Testimoni::create([
             'name' => $request->name,
-            'photo' => isset($upload) ? $upload : ''
+            'photo' => isset($upload) ? $upload['image'] : ''
         ]);
 
         return response()->json(['message' => 'success insert data'], 201);
@@ -79,7 +85,7 @@ class TestimoniController extends Controller
         }
 
         if(isset($upload)){
-            $arrPhoto = ['photo' => $upload];
+            $arrPhoto = ['photo' => $upload['image']];
         }else{
             $arrPhoto = [];
         }

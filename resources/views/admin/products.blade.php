@@ -13,6 +13,7 @@
                     <th>Price</th>
                     <th>Photo</th>
                     <th>Embed</th>
+                    <th>Brosur</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -91,6 +92,10 @@
                             <input type="url" class="form-control" id="embed" name="embed" placeholder="" required>
                         </div>
                         <div class="form-group col-6">
+                            <label for="brosur">Brosur</label> 
+                            <input type="file" class="form-control" name="brosur" accept=".jpg,.jpeg,.png,.svg" id="brosur">
+                        </div>
+                        <div class="form-group col-6">
                             <label for="categories_id">Kategori</label>
                             <select name="categories_id" id="categories_id" class="form-control" required>
                                 <option value="" disabled selected>Pilih Kategori</option>
@@ -129,7 +134,16 @@
                 columns: [
                     {data: 'DT_RowIndex', name: 'DT_RowIndex', width: '5%', className: 'dt-center', orderable: false},
                     {data: 'name', name: 'name', width: '20%', className: 'dt-center'},
-                    {data: 'price', name: 'price', width: '10%', className: 'dt-center'},
+                    // {data: 'price', name: 'price', width: '10%', className: 'dt-center'},
+                    {
+                        data: 'price', 
+                        name: 'price',
+                        width: '20%',
+                        className: 'dt-center',
+                        render: function(data, type) {
+                            return format(data);
+                        }
+                    },
                     {
                         data: 'photo', 
                         name: 'photo',
@@ -146,6 +160,15 @@
                         className: 'dt-center',
                         render: function(data, type) {
                             return '<a target="_blank" href="'+data+'">'+data+'</a>';
+                        }
+                    },
+                    {
+                        data: 'brosur', 
+                        name: 'brosur',
+                        width: '20%',
+                        className: 'dt-center',
+                        render: function(data, type) {
+                            return '<img src="{{ URL::asset("uploads") }}/'+data+'" style="width: 100%;height: 5rem;"></img>';
                         }
                     },
                     {

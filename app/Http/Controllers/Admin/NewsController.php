@@ -17,8 +17,14 @@ class NewsController extends Controller
     }
 
     public function index(){
-        // dd(getCategori());
-        return view('admin.news');
+
+        $arrParam = [
+            'createUrl' => route('admin.news.create'),
+            'updateUrl' => route('admin.news.update')
+        ];
+
+        return view('admin.news')->with(['data' => $arrParam]);
+
     }
 
     public function datatable(Request $request){
@@ -55,7 +61,7 @@ class NewsController extends Controller
             'judul' => $request->judul,
             'news_date' => $request->news_date,
             'description' => $request->description,
-            'photo' => isset($upload) ? $upload : ''
+            'photo' => isset($upload) ? $upload['image'] : ''
         ]);
 
         return response()->json(['message' => 'success insert data'], 201);
@@ -84,7 +90,7 @@ class NewsController extends Controller
         }
 
         if(isset($upload)){
-            $arrPhoto = ['photo' => $upload];
+            $arrPhoto = ['photo' => $upload['image']];
         }else{
             $arrPhoto = [];
         }

@@ -20,6 +20,7 @@ class CreateProductsTable extends Migration
             $table->text('description')->nullable();
             $table->string('photo');
             $table->string('embed');
+            $table->string('brosur');
             $table->integer('categories_id');
             $table->timestamps();
         });

@@ -19,7 +19,12 @@ class ProductsController extends Controller
 
     public function index(){
         // dd(getCategori());
-        return view('admin.products');
+        $arrParam = [
+            'createUrl' => route('admin.products.create'),
+            'updateUrl' => route('admin.products.update')
+        ];
+
+        return view('admin.products')->with(['data' => $arrParam]);
     }
 
     public function datatable(Request $request){
@@ -40,19 +45,23 @@ class ProductsController extends Controller
     public function create(Request $request){
 
         // dd($request->all());
-        if(isset($request->photo)){
+        if(isset($request->photo) || isset($request->brosur)){
 
             $this->validate($request,[
                 'name' => 'required',
                 'price' => 'required',
                 'embed' => 'required|url',
                 'categories_id' => 'required|numeric',
+                'brosur' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
                 'photo' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048']
             ]);
     
             $upload = uploadPhoto($request);
+            // $uploadBrosur = uploadBrosur($request);
 
         }
+
+        // dd($upload);
 
         $action = Products::create([
             'name' => $request->name,
@@ -60,7 +69,8 @@ class ProductsController extends Controller
             'embed' => str_replace('/watch?v=', '/embed/', $request->embed),
             'categories_id' => $request->categories_id,
             'description' => $request->description,
-            'photo' => isset($upload) ? $upload : ''
+            'brosur' => isset($upload) ? $upload['brosur'] : '',
+            'photo' => isset($upload) ? $upload['image'] : ''
         ]);
 
         return response()->json(['message' => 'success insert data'], 201);
@@ -76,22 +86,35 @@ class ProductsController extends Controller
     public function update(Request $request){
 
         // dd($request->all());
-        if(isset($request->photo)){
+        if(isset($request->photo) || isset($request->brosur)){
 
             $this->validate($request,[
                 'name' => 'required',
                 'price' => 'required',
                 'embed' => 'required|url',
                 'categories_id' => 'required|numeric',
+                'brosur' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
                 'photo' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048']
             ]);
     
             $upload = uploadPhoto($request);
+            // $uploadBrosur = uploadBrosur($request);
 
         }
 
         if(isset($upload)){
-            $arrPhoto = ['photo' => $upload];
+
+            $arrImg = [];
+            $arrBrosur = [];
+            if($upload['image'] !== ""){
+                $arrImg = ['photo' => $upload['image']];
+            }
+            if($upload['brosur'] !== ""){
+                $arrBrosur = ['brosur' => $upload['brosur']];
+            }
+
+            $arrPhoto = array_merge($arrImg, $arrBrosur);
+
         }else{
             $arrPhoto = [];
         }
@@ -106,6 +129,8 @@ class ProductsController extends Controller
                 'description' => $request->description
             ]
         );
+
+        // dd($body);
 
         try
         {

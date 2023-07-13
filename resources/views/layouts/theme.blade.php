@@ -280,6 +280,14 @@ Author URL: http://w3layouts.com
 <script>
     $(document).ready(function () {
 
+      var createUrl = "{{ $data['createUrl'] }}";
+      var updateUrl = "{{ $data['updateUrl'] }}";
+
+      $('#btn-add').click(function(){
+          $('#myModal').modal({backdrop: 'static', keyboard: false});
+          $('#formCRUD').attr('action', createUrl);
+      });
+
       var segment = "{{ request()->segment(2) }}";
       $('.nav-item').removeClass('active');
 

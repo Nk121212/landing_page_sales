@@ -35,7 +35,7 @@ function getProfile(id, url_profile, url_update){
         success: function(response){
             console.log(response);
             $.each(response.data, function(k, v) {
-                if(k !== 'photo'){
+                if(k !== 'photo' && k !== 'brosur'){
                     $('input[name="'+k+'"]').val(v).trigger('keyup');
                     $('select[name="'+k+'"]').val(v).trigger('change');
                     $('textarea[name="'+k+'"]').text(v);
@@ -149,10 +149,6 @@ $(document).ready(function(){
         $('#formCRUD')[0].reset();
         $('textarea').text("");
     })
-
-    $('#btn-add').click(function(){
-        $('#myModal').modal({backdrop: 'static', keyboard: false});
-    });
 
     $("#formCRUD, #formDelete").submit(function (event) {
 

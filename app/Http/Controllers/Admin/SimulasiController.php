@@ -17,7 +17,13 @@ class SimulasiController extends Controller
     }
 
     public function index(){
-        return view('admin.simulasi');
+
+        $arrParam = [
+            'createUrl' => route('admin.simulasi.create'),
+            'updateUrl' => route('admin.simulasi.update')
+        ];
+
+        return view('admin.simulasi')->with(['data' => $arrParam]);
     }
 
     public function datatable(Request $request){
@@ -48,7 +54,7 @@ class SimulasiController extends Controller
         }
 
         $action = Simulasi::create([
-            'photo' => isset($upload) ? $upload : ''
+            'photo' => isset($upload) ? $upload['image'] : ''
         ]);
 
         return response()->json(['message' => 'success insert data'], 201);
@@ -75,14 +81,13 @@ class SimulasiController extends Controller
         }
 
         if(isset($upload)){
-            $arrPhoto = ['photo' => $upload];
+            $arrPhoto = ['photo' => $upload['image']];
         }else{
             $arrPhoto = [];
         }
 
         $body = array_merge(
-            $arrPhoto,
-            ['products_id' => $request->name]
+            $arrPhoto
         );
 
         try
