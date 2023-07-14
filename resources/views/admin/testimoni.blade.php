@@ -79,6 +79,10 @@
                             <label for="photo">Photo</label> 
                             <input type="file" class="form-control" name="photo" accept=".jpg,.jpeg,.png,.svg" id="photo">
                         </div>
+                        <div class="form-group col-12">
+                            <label for="description">Description</label>
+                            <textarea name="description" id="description" cols="30" rows="6" class="form-control"></textarea>
+                        </div>
                     </div>
                 
                 </div>

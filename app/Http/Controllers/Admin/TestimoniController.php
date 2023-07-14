@@ -57,6 +57,7 @@ class TestimoniController extends Controller
 
         $action = Testimoni::create([
             'name' => $request->name,
+            'description' => $request->description,
             'photo' => isset($upload) ? $upload['image'] : ''
         ]);
 
@@ -92,7 +93,7 @@ class TestimoniController extends Controller
 
         $body = array_merge(
             $arrPhoto,
-            ['name' => $request->name]
+            ['name' => $request->name, 'description' => $request->description]
         );
 
         try
