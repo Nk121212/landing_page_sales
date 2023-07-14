@@ -7,6 +7,8 @@ use App\Models\Categories;
 use App\Models\Products;
 use App\Models\Testimoni;
 use App\Models\Promo;
+use App\Models\News;
+use App\Models\Simulasi;
 
 if(!function_exists('getProducts')){
 
@@ -43,6 +45,34 @@ if(!function_exists('getPromo')){
     }
 
 }
+
+if(!function_exists('getNews')){
+
+    function getNews(){
+        $data = News::all();
+        return $data;
+    }
+
+}
+
+if(!function_exists('getSimulasi')){
+
+    function getSimulasi(){
+        $data = Simulasi::all();
+        return $data;
+    }
+
+}
+
+if(!function_exists('getNewsLatest')){
+
+    function getNewsLatest(){
+        $data = News::orderBy('news_date', 'desc')->first();
+        return $data;
+    }
+
+}
+
 
 
 if(!function_exists('uploadFile')){

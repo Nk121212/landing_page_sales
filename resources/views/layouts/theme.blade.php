@@ -255,6 +255,14 @@ Author URL: http://w3layouts.com
 
 </body>
 
+@php
+    if(!isset($data)){
+      $data = ['createUrl' => '', 'updateUrl' => ''];
+    }else{
+      $data = $data;
+    }
+@endphp
+
 <script>
 
     window.onscroll = function () {
@@ -282,7 +290,7 @@ Author URL: http://w3layouts.com
 
       var createUrl = "{{ $data['createUrl'] }}";
       var updateUrl = "{{ $data['updateUrl'] }}";
-
+      
       $('#btn-add').click(function(){
           $('#myModal').modal({backdrop: 'static', keyboard: false});
           $('#formCRUD').attr('action', createUrl);

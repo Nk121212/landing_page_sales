@@ -14,7 +14,7 @@
 
                 <div class="col-lg-8 col-md-6 causes-grid">
                     <div class="causes-grid-info">
-                        <a href="">
+                        <a>
                             <img src="{{ asset('uploads') }}/{{ $data->photo }}" class="img-fuild" alt="">
                         </a>
                         <div class="text-center mt-2">
@@ -39,7 +39,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 causes-grid">
                     <div class="causes-grid-info">
-                        <a href="">
+                        <a>
                             <img src="https://radarpekalongan.disway.id/uploads/post-1.-dwi-ADV-nasmoco.jpg" class="img-fuild" alt="">
                         </a>
                         <div class="text-center">

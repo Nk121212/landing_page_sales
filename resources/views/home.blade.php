@@ -8,6 +8,9 @@
         <div class="owl-stage-outer">
             <div class="owl-stage" style="transform: translate3d(-2698px, 0px, 0px); transition: all 0s ease 0s; width: 10792px;">
                 @foreach(getProducts() as $product)
+                @php 
+                    $encodedId = base64_encode($product->id);
+                @endphp
                 <div class="owl-item active" style="width: 1349px;">
                     <div class="item">
                         <li>
@@ -17,7 +20,7 @@
                                         <div class="banner-info-bg">
                                             <h5>{{ $product->name }}</h5>
                                             <div class="banner-buttons">
-                                                <a class="btn btn-style btn-primary" href="#">Read More</a>
+                                                <a class="btn btn-style btn-primary" href="{{ route('guest.products.detail') }}?param={{ $encodedId }}">Read More</a>
                                             </div>
                                         </div>
                                     </div>
