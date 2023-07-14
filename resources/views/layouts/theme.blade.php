@@ -259,7 +259,7 @@ Author URL: http://w3layouts.com
     if(!isset($action)){
       $action = ['createUrl' => '', 'updateUrl' => ''];
     }else{
-      $action = $data;
+      $action = $action;
     }
 @endphp
 
