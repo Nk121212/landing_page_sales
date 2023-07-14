@@ -23,7 +23,7 @@ class NewsController extends Controller
             'updateUrl' => route('admin.news.update')
         ];
 
-        return view('admin.news')->with(['data' => $arrParam]);
+        return view('admin.news')->with(['action' => $arrParam]);
 
     }
 

@@ -24,7 +24,7 @@ class CategoriesController extends Controller
             'updateUrl' => route('admin.categories.update')
         ];
 
-        return view('admin.categories')->with(['data' => $arrParam]);
+        return view('admin.categories')->with(['action' => $arrParam]);
     }
 
     public function datatable(Request $request){

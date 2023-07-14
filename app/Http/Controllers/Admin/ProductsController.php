@@ -24,7 +24,7 @@ class ProductsController extends Controller
             'updateUrl' => route('admin.products.update')
         ];
 
-        return view('admin.products')->with(['data' => $arrParam]);
+        return view('admin.products')->with(['action' => $arrParam]);
     }
 
     public function datatable(Request $request){

@@ -288,8 +288,8 @@ Author URL: http://w3layouts.com
 <script>
     $(document).ready(function () {
 
-      var createUrl = "{{ $data['createUrl'] }}";
-      var updateUrl = "{{ $data['updateUrl'] }}";
+      var createUrl = "{{ $action['createUrl'] }}";
+      var updateUrl = "{{ $action['updateUrl'] }}";
       
       $('#btn-add').click(function(){
           $('#myModal').modal({backdrop: 'static', keyboard: false});

@@ -23,7 +23,7 @@ class TestimoniController extends Controller
             'updateUrl' => route('admin.testimoni.update')
         ];
 
-        return view('admin.testimoni')->with(['data' => $arrParam]);
+        return view('admin.testimoni')->with(['action' => $arrParam]);
     }
 
     public function datatable(Request $request){

@@ -23,7 +23,7 @@ class PromoController extends Controller
             'updateUrl' => route('admin.promo.update')
         ];
 
-        return view('admin.promo')->with(['data' => $arrParam]);
+        return view('admin.promo')->with(['action' => $arrParam]);
     }
 
     public function datatable(Request $request){

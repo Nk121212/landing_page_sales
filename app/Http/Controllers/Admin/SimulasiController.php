@@ -23,7 +23,7 @@ class SimulasiController extends Controller
             'updateUrl' => route('admin.simulasi.update')
         ];
 
-        return view('admin.simulasi')->with(['data' => $arrParam]);
+        return view('admin.simulasi')->with(['action' => $arrParam]);
     }
 
     public function datatable(Request $request){
