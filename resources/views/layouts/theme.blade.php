@@ -256,10 +256,10 @@ Author URL: http://w3layouts.com
 </body>
 
 @php
-    if(!isset($data)){
-      $data = ['createUrl' => '', 'updateUrl' => ''];
+    if(!isset($action)){
+      $action = ['createUrl' => '', 'updateUrl' => ''];
     }else{
-      $data = $data;
+      $action = $data;
     }
 @endphp
 
