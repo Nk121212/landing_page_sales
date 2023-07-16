@@ -79,17 +79,19 @@ if(!function_exists('uploadFile')){
 
     function uploadPhoto(Request $request){
 
-        // dd(Route::currentRouteName());
-
-        // dd();
-
         $explode = explode(".", Route::currentRouteName());
         $prefix_file_name = $explode[1];
 
-        // dd($request);
         $imageName = '';
         $brosurName = '';
-        $fileNameTrim = (isset($request->name)) ? $request->name : $request->judul;
+        if(isset($request->name)){
+            $fileNameTrim = $request->name;
+        }elseif(isset($request->judul)){
+            $fileNameTrim = $request->judul;
+        }else{
+            $fileNameTrim = time();
+        }
+        // $fileNameTrim = (isset($request->name)) ? $request->name : $request->judul;
         if(isset($request->photo)){
             $imageName = $prefix_file_name.'_'.trim($fileNameTrim, " ").'.'.$request->photo->getClientOriginalExtension();
             $request->photo->move(public_path('/uploads'), $imageName);
