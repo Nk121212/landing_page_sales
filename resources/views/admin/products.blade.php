@@ -111,7 +111,7 @@
                         </div>
                         <div class="form-group col-6">
                             <label for="brosur">Detail Product</label> 
-                            <input type="number" class="form-control" accept="" id="detailProductTrigger">
+                            <input type="number" class="form-control" accept="" id="detailProductTrigger" name="total_detail">
                         </div>
                     </div>
                     <div id="appendUploadDetail">

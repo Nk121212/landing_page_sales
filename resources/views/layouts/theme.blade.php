@@ -369,7 +369,7 @@ Author URL: http://w3layouts.com
         }
       });
 
-      $('.owl-carousel').owlCarousel({
+      $('.owl-product-carousel').owlCarousel({
         loop: true,
         margin: 10,
         nav: true,

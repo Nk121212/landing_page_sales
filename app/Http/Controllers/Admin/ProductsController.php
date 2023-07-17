@@ -70,7 +70,8 @@ class ProductsController extends Controller
             'description' => $request->description,
             'brosur' => isset($upload) ? $upload['brosur'] : '',
             'photo' => isset($upload) ? $upload['image'] : '',
-            'slogan' => $request->slogan
+            'slogan' => $request->slogan,
+            'total_detail' => $request->total_detail
         ]);
 
         $saveDetails = $this->createDetails($action->id, $upload['detail_products']);
@@ -88,7 +89,7 @@ class ProductsController extends Controller
     public function update(Request $request){
 
         // dd($request->all());
-        if(isset($request->photo) || isset($request->brosur)){
+        if(isset($request->photo) || isset($request->brosur) || isset($request->uploadDetail)){
 
             $this->validate($request,[
                 'name' => 'required',
@@ -129,7 +130,8 @@ class ProductsController extends Controller
                 'embed' => str_replace('/watch?v=', '/embed/', $request->embed),
                 'categories_id' => $request->categories_id,
                 'description' => $request->description,
-                'slogan' => $request->slogan
+                'slogan' => $request->slogan,
+                'total_detail' => $request->total_detail
             ]
         );
 
@@ -139,7 +141,7 @@ class ProductsController extends Controller
         {
             $action = Products::where('id', $request->id)->update($body);
 
-            $saveDetails = $this->createDetails($action->id, $upload['detail_products']);
+            $saveDetails = $this->createDetails($request->id, $upload['detail_products']);
 
             return response()->json(['message' => 'success update data'], 200);
         }

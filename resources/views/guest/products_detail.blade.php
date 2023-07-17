@@ -67,7 +67,7 @@
             <div>
                 <hr>
             </div>
-            <div class="owl-carousel owl-theme text-center">
+            <div class="owl-product-carousel owl-carousel owl-theme text-center">
                 @foreach(getProductsDetail($data->id) as $details)
                 <div class="item">
                     <img src="{{ asset('uploads') }}/details/{{ $details->photo_detail }}" style="width:100%;">
