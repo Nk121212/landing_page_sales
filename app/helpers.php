@@ -49,8 +49,14 @@ if(!function_exists('getPromo')){
 
 if(!function_exists('getNews')){
 
-    function getNews(){
-        $data = News::all();
+    function getNews($limit=""){
+
+        if($limit == ""){
+            $data = News::all();
+        }else{
+            $data = News::orderBy('updated_at', 'desc')->paginate($limit);
+        }
+        
         return $data;
     }
 

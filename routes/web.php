@@ -77,6 +77,8 @@ Route::group(['prefix' => 'guest'], function() {
     Route::get('/products/detail', [App\Http\Controllers\Guest\ProductsController::class, 'detail'])->name('guest.products.detail');
 
     Route::get('/news', [App\Http\Controllers\Guest\NewsController::class, 'index'])->name('guest.news');
+    Route::get('/news/all', [App\Http\Controllers\Guest\NewsController::class, 'show_all'])->name('guest.news.all');
+    
     Route::get('/simulasi', [App\Http\Controllers\Guest\SimulasiController::class, 'index'])->name('guest.simulasi');
     Route::get('/testimoni', [App\Http\Controllers\Guest\TestimoniController::class, 'index'])->name('guest.testimoni');
     Route::get('/contact', [App\Http\Controllers\Guest\ContactController::class, 'index'])->name('guest.contact');

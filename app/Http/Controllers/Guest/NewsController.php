@@ -17,7 +17,10 @@ class NewsController extends Controller
     }
 
     public function index(){
-        // dd(getCategori());
         return view('guest.news');
+    }
+
+    public function show_all(){
+        return view('guest.news_all');
     }
 }
