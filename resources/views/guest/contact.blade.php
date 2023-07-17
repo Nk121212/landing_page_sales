@@ -7,7 +7,6 @@
         <div class="title-content text-left mb-lg-5 mb-4">
             <h6 class="sub-title">Contact Us</h6>
             <h3 class="hny-title">Contact Us Anytime</h3>
-            <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit hic odio.</p> -->
         </div>
         <div>
             <hr>
@@ -72,6 +71,12 @@
 
     </div>
 </div> 
+
+
+
+<div id="map" style="width:100%;height:380px;"></div>
+
+</div>
 
 @endsection
 

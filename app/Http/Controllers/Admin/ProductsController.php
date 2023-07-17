@@ -166,14 +166,14 @@ class ProductsController extends Controller
 
             DetailProducts::where('id_products', $id)->delete();
             foreach ($upload as $value) {
-
+                
                 $addDetails = DetailProducts::create([
                     'id_products' => $id,
                     'photo_detail' => $value
                 ]);
                 
             }
-            
+
         }
 
         return true;
