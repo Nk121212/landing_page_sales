@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Products;
+use App\Models\DetailProducts;
 use Yajra\DataTables\Datatables;
 Use Exception;
 
@@ -61,8 +62,6 @@ class ProductsController extends Controller
 
         }
 
-        // dd($upload);
-
         $action = Products::create([
             'name' => $request->name,
             'price' => str_replace(',', '', $request->price),
@@ -70,8 +69,11 @@ class ProductsController extends Controller
             'categories_id' => $request->categories_id,
             'description' => $request->description,
             'brosur' => isset($upload) ? $upload['brosur'] : '',
-            'photo' => isset($upload) ? $upload['image'] : ''
+            'photo' => isset($upload) ? $upload['image'] : '',
+            'slogan' => $request->slogan
         ]);
+
+        $saveDetails = $this->createDetails($action->id, $upload['detail_products']);
 
         return response()->json(['message' => 'success insert data'], 201);
     }
@@ -126,7 +128,8 @@ class ProductsController extends Controller
                 'price' => str_replace(',', '', $request->price),
                 'embed' => str_replace('/watch?v=', '/embed/', $request->embed),
                 'categories_id' => $request->categories_id,
-                'description' => $request->description
+                'description' => $request->description,
+                'slogan' => $request->slogan
             ]
         );
 
@@ -135,6 +138,9 @@ class ProductsController extends Controller
         try
         {
             $action = Products::where('id', $request->id)->update($body);
+
+            $saveDetails = $this->createDetails($action->id, $upload['detail_products']);
+
             return response()->json(['message' => 'success update data'], 200);
         }
         catch(Exception $e)
@@ -149,6 +155,21 @@ class ProductsController extends Controller
         $delete = Products::where('id', $request->id)->delete();
 
         return response()->json(['message' => 'success delete data'], 200);
+    }
+
+    public function createDetails($id, $upload){
+
+        foreach ($upload as $value) {
+
+            $addDetails = DetailProducts::create([
+                'id_products' => $id,
+                'photo_detail' => $value
+            ]);
+            
+        }
+
+        return true;
+
     }
 
 

@@ -59,6 +59,23 @@
             </div>
         </div>
 
+        <div class="container mb-3">
+            <div class="title-content text-center mb-lg-2 mb-2">
+                <h6 class="sub-title">Detail Product</h6>
+                <!-- <h3 class="hny-title">{{ $data->name }}</h3> -->
+            </div>
+            <div>
+                <hr>
+            </div>
+            <div class="owl-carousel owl-theme text-center">
+                @foreach(getProductsDetail($data->id) as $details)
+                <div class="item">
+                    <img src="{{ asset('uploads') }}/details/{{ $details->photo_detail }}" style="width:100%;">
+                </div>
+                @endforeach
+            </div>
+        </div>
+
         <div class="container py-lg-4">
             <div class="title-content text-center mb-lg-2 mb-2">
                 <h6 class="sub-title">Video Terkait</h6>

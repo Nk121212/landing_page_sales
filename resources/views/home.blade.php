@@ -18,7 +18,13 @@
                                 <div class="banner-info">
                                     <div class="container">
                                         <div class="banner-info-bg">
-                                            <h5>{{ $product->name }}</h5>
+                                            <p style="text-transform: uppercase;font-weight:bold;font-size: 40px;">{{ $product->name }}</p>
+                                            <p style="font-weight:bold;font-size: 20px;margin-top: 10px;">{{ $product->slogan }}</p>
+                                            @php
+                                                $str = $product->description;
+                                                $useDesc = substr($str, 0, 40).' ...';
+                                            @endphp
+                                            <p style="font-size: 14px;margin-top: 10px;">{{ $useDesc }}</p>
                                             <div class="banner-buttons">
                                                 <a class="btn btn-style btn-primary" href="{{ route('guest.products.detail') }}?param={{ $encodedId }}">Read More</a>
                                             </div>

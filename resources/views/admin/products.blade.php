@@ -69,15 +69,16 @@
             <form id="formCRUD" method="POST" action="{{ route('admin.products.create') }}">
                 <div class="modal-body">
 
-                    <!-- <div class="col-12 success_handling"></div>
-                    <div class="col-12 error_handling"></div> -->
-
                     <input type="hidden" id="id" name="id">
 
                     <div class="row">
                         <div class="form-group col-6">
                             <label for="name">Name</label>
                             <input type="text" class="form-control" id="name" name="name" placeholder="" required>
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="slogan">Slogan</label>
+                            <input type="text" class="form-control" id="slogan" name="slogan" placeholder="">
                         </div>
                         <div class="form-group col-6">
                             <label for="price">Price</label>
@@ -108,6 +109,13 @@
                             <label for="description">Description</label>
                             <textarea name="description" class="form-control" id="description" name="description" cols="30" rows="5"></textarea>
                         </div>
+                        <div class="form-group col-6">
+                            <label for="brosur">Detail Product</label> 
+                            <input type="number" class="form-control" accept="" id="detailProductTrigger">
+                        </div>
+                    </div>
+                    <div id="appendUploadDetail">
+
                     </div>
                 
                 </div>
@@ -126,6 +134,16 @@
 
     <script>
         $(document).ready(function(){
+
+            $('#detailProductTrigger').keyup(function(){
+                $('#appendUploadDetail').html("");
+                if($(this).val() !== ""){
+                    var i;
+                    for (i = 0; i < $(this).val(); ++i) {
+                        $('#appendUploadDetail').append('<input type="file" name="uploadDetail[]" class="form-control mb-1"></input>');
+                    }
+                }
+            });
             
             var table = $('.my-datatable').DataTable({
                 processing: true,
@@ -168,7 +186,7 @@
                         width: '20%',
                         className: 'dt-center',
                         render: function(data, type) {
-                            return '<img src="{{ URL::asset("uploads") }}/'+data+'" style="width: 100%;height: 5rem;"></img>';
+                            return '<img src="{{ URL::asset("uploads") }}/brosur/'+data+'" style="width: 100%;height: 5rem;"></img>';
                         }
                     },
                     {

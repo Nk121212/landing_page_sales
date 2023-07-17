@@ -9,6 +9,7 @@ use App\Models\Testimoni;
 use App\Models\Promo;
 use App\Models\News;
 use App\Models\Simulasi;
+use App\Models\DetailProducts;
 
 if(!function_exists('getProducts')){
 
@@ -73,6 +74,15 @@ if(!function_exists('getNewsLatest')){
 
 }
 
+if(!function_exists('getProductsDetail')){
+
+    function getProductsDetail($id_products){
+        $data = DetailProducts::where('id_products', $id_products)->get();
+        return $data;
+    }
+
+}
+
 
 
 if(!function_exists('uploadFile')){
@@ -91,7 +101,7 @@ if(!function_exists('uploadFile')){
         }else{
             $fileNameTrim = time();
         }
-        // $fileNameTrim = (isset($request->name)) ? $request->name : $request->judul;
+
         if(isset($request->photo)){
             $imageName = $prefix_file_name.'_'.trim($fileNameTrim, " ").'.'.$request->photo->getClientOriginalExtension();
             $request->photo->move(public_path('/uploads'), $imageName);
@@ -99,10 +109,22 @@ if(!function_exists('uploadFile')){
 
         if(isset($request->brosur)){
             $brosurName = $prefix_file_name.'_brosur_'.trim($fileNameTrim, " ").'.'.$request->brosur->getClientOriginalExtension();
-            $request->brosur->move(public_path('/uploads'), $brosurName);
+            $request->brosur->move(public_path('/uploads/brosur'), $brosurName);
         }
 
-        return ['image' => $imageName, 'brosur' => $brosurName];
+        $detailUpload = [];
+        if(isset($request->uploadDetail)){
+            $i=0;
+            foreach ($request->uploadDetail as $file) {
+                $fileName = time().'.'.$file->getClientOriginalExtension();
+                $file->move(public_path('/uploads/details'), $fileName);
+                $detailUpload[$i] = $fileName;
+                $i++;
+            }
+
+        }
+
+        return ['image' => $imageName, 'brosur' => $brosurName, 'detail_products' => $detailUpload];
 
     }
 

@@ -18,6 +18,7 @@ class Products extends Model
         'photo',
         'embed',
         'categories_id',
-        'brosur'
+        'brosur',
+        'slogan'
     ];
 }

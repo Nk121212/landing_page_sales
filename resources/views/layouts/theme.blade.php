@@ -367,7 +367,37 @@ Author URL: http://w3layouts.com
             nav: true
           }
         }
-      })
+      });
+
+      $('.owl-carousel').owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true,
+        center: true,
+        responsiveClass: true,
+        autoplay: true,
+        autoplayTimeout: 2000,
+        autoplaySpeed: 1000,
+        autoplayHoverPause: false,
+        responsive: {
+          0: {
+            items: 4,
+            nav: true
+          },
+          480: {
+            items: 4,
+            nav: true
+          },
+          667: {
+            items: 4,
+            nav: true
+          },
+          1000: {
+            items: 4,
+            nav: true
+          }
+        }
+      });
     })
 </script>
     <!-- //script -->
