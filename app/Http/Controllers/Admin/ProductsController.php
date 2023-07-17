@@ -161,12 +161,18 @@ class ProductsController extends Controller
 
     public function createDetails($id, $upload){
 
-        foreach ($upload as $value) {
+        // dd($upload);
+        if(isset($upload)){
 
-            $addDetails = DetailProducts::create([
-                'id_products' => $id,
-                'photo_detail' => $value
-            ]);
+            DetailProducts::where('id_products', $id)->delete();
+            foreach ($upload as $value) {
+
+                $addDetails = DetailProducts::create([
+                    'id_products' => $id,
+                    'photo_detail' => $value
+                ]);
+                
+            }
             
         }
 

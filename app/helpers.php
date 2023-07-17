@@ -122,7 +122,7 @@ if(!function_exists('uploadFile')){
         if(isset($request->uploadDetail)){
             $i=0;
             foreach ($request->uploadDetail as $file) {
-                $fileName = time().'.'.$file->getClientOriginalExtension();
+                $fileName = time().$i.'.'.$file->getClientOriginalExtension();
                 $file->move(public_path('/uploads/details'), $fileName);
                 $detailUpload[$i] = $fileName;
                 $i++;
