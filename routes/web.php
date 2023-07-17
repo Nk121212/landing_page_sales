@@ -69,6 +69,13 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
     Route::post('/promo/update', [App\Http\Controllers\Admin\PromoController::class, 'update'])->name('admin.promo.update');
     Route::post('/promo/delete', [App\Http\Controllers\Admin\PromoController::class, 'delete'])->name('admin.promo.delete');
 
+    Route::get('/my-users', [App\Http\Controllers\Admin\UsersController::class, 'index'])->name('admin.my-users');
+    Route::get('/my-users/datatable', [App\Http\Controllers\Admin\UsersController::class, 'datatable'])->name('admin.my-users.datatable');
+    Route::post('/my-users/create', [App\Http\Controllers\Admin\UsersController::class, 'create'])->name('admin.my-users.create');
+    Route::post('/my-users/profile', [App\Http\Controllers\Admin\UsersController::class, 'profile'])->name('admin.my-users.profile');
+    Route::post('/my-users/update', [App\Http\Controllers\Admin\UsersController::class, 'update'])->name('admin.my-users.update');
+    Route::post('/my-users/delete', [App\Http\Controllers\Admin\UsersController::class, 'delete'])->name('admin.my-users.delete');
+
 });
 
 Route::group(['prefix' => 'guest'], function() {

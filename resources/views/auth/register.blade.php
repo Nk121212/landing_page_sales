@@ -26,6 +26,48 @@
                         </div>
 
                         <div class="row mb-3">
+                            <label for="no_telp" class="col-md-4 col-form-label text-md-end">{{ __('No Telp / Wa') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="no_telp" type="number" class="form-control @error('no_telp') is-invalid @enderror" name="no_telp" value="{{ old('no_telp') }}" required autocomplete="no_telp" autofocus>
+
+                                @error('no_telp')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="instagram" class="col-md-4 col-form-label text-md-end">{{ __('Instagram') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="instagram" type="text" class="form-control @error('instagram') is-invalid @enderror" name="instagram" value="{{ old('instagram') }}" required autocomplete="instagram" autofocus>
+
+                                @error('instagram')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="photo" class="col-md-4 col-form-label text-md-end">{{ __('Photo') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="photo" type="file" class="form-control @error('photo') is-invalid @enderror" name="photo" value="{{ old('photo') }}" required autocomplete="photo" autofocus>
+
+                                @error('photo')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
 
                             <div class="col-md-6">

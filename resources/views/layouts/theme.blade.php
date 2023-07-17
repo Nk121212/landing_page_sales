@@ -317,6 +317,7 @@ Author URL: http://w3layouts.com
       $('#btn-add').click(function(){
           $('#myModal').modal({backdrop: 'static', keyboard: false});
           $('#formCRUD').attr('action', createUrl);
+          $('input[name="password"]').prop('required', true);
       });
 
       var segment = "{{ request()->segment(2) }}";

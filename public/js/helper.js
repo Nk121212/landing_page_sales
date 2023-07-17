@@ -21,6 +21,8 @@ var format = function(num){
 
 function getProfile(id, url_profile, url_update){
 
+    $('input[name="password"]').prop('required', false);
+
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
