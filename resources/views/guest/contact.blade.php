@@ -67,29 +67,63 @@
 </div>
 
 <section class="mt-3">
-  <div class="row text-left">
+  <div class="row text-center">
     <div class="col-1"></div>
-    <div class="col-4">
-      <div class="card" style="width: 100%;background-color:#002b5e;padding-top:5rem;padding-bottom:5rem;padding-left:1rem;">
+    <div class="col-10">
+      <div class="card" style="width: 100%;background-color:#002b5e;">
         <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
         <div class="card-body">
-          <h5 class="card-title text-white"><i class="fa fa-map-marker"></i><b class="ml-4"><strong>LOCATION</strong></b></h5>
-          <p class="card-text text-white ml-5">Banjarbaru_kalsel, simpang 4, Kota Banjar Baru, Kalimantan Selatan 70721</p>
-          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-          <h5 class="card-title text-white mt-3"><i class="fa fa-phone"></i> <b class="ml-3"><strong>Phone</strong></b></h5>
-          <p class="card-text text-white ml-5">{{ getUsersActive()->no_telp }}</p>
-          
-          <h5 class="card-title text-white mt-3"><i class="fa fa-envelope"></i> <b class="ml-3"><strong>Email</strong></b></h5>
-          <p class="card-text text-white ml-5">{{ getUsersActive()->email }}</p>
+          <div class="row">
+            
+            <div class="col-3">
 
-          <h5 class="card-title text-white mt-3"><i class="fa fa-whatsapp"></i> <b class="ml-3"><strong>Whatsapp</strong></b></h5>
-          <p class="card-text text-white ml-5">{{ getUsersActive()->no_telp }}</p>
+              <h5 class="card-title text-white">
+                <i class="fa fa-map-marker"></i>
+                <b><strong> Location</strong></b>
+              </h5>
+              <p class="card-text text-white">Banjarbaru_kalsel, simpang 4, Kota Banjar Baru, Kalimantan Selatan 70721</p>
+
+            </div>
+
+            <div class="col-3">
+
+            <h5 class="card-title text-white"><i class="fa fa-phone"></i> 
+              <b><strong>Phone</strong></b>
+            </h5>
+            <p class="card-text text-white">{{ getUsersActive()->no_telp }}</p>
+
+            </div>
+
+            <div class="col-3">
+
+            <h5 class="card-title text-white"><i class="fa fa-envelope"></i> 
+              <b><strong>Email</strong></b>
+            </h5>
+            <p class="card-text text-white">{{ getUsersActive()->email }}</p>
+
+            </div>
+
+            <div class="col-3">
+
+            <h5 class="card-title text-white"><i class="fa fa-whatsapp"></i> 
+              <b><strong>Whatsapp</strong></b>
+            </h5>
+            <p class="card-text text-white">{{ getUsersActive()->no_telp }}</p>
+
+            </div>
+
+          </div>
           
         </div>
       </div>
     </div>
+    <div class="col-1"></div>
   </div>
 </section>
+
+
+
+
 
 <!-- <div id="map" style="width:100%;height:380px;"></div>
 
