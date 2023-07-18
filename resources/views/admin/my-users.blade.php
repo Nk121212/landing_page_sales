@@ -96,6 +96,14 @@
                             <label for="instagram">Instagram</label> 
                             <input type="text" class="form-control" name="instagram" id="instagram">
                         </div>
+                        <div class="form-group col-6">
+                            <label for="status">Status</label> 
+                            <select name="status" id="status" class="form-control">
+                                <option value="" disabled selected>Pilih Status</option>
+                                <option value="1">Aktif</option>
+                                <option value="0">Tidak Aktif</option>
+                            </select>
+                        </div>
                         <!-- <div class="form-group col-6">
                             <label for="categories_id">Kategori</label>
                             <select name="categories_id" id="categories_id" class="form-control" required>

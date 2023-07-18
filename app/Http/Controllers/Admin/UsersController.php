@@ -62,12 +62,18 @@ class UsersController extends Controller
 
         $action = User::create([
             'name' => $request->name,
-            'email' => str_replace(',', '', $request->price),
+            'email' => $request->email,
             'password' => Hash::make($request->password),
             'no_telp' => $request->no_telp,
             'instagram' => $request->instagram,
-            'photo' => $upload['image']
+            'photo' => $upload['image'],
+            'status' => $request->status
         ]);
+
+        if($request->status == '1'){
+            //set yg lain jadi non aktif
+            $this->nonAktifElse($action->id);
+        }
 
         return response()->json(['message' => 'success insert data'], 201);
     }
@@ -117,10 +123,11 @@ class UsersController extends Controller
             $arrPhoto,
             [
                 'name' => $request->name,
-                'email' => str_replace(',', '', $request->price),
+                'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'no_telp' => $request->no_telp,
-                'instagram' => $request->instagram
+                'instagram' => $request->instagram,
+                'status' => $request->status
             ]
         );
 
@@ -129,6 +136,11 @@ class UsersController extends Controller
         try
         {
             $action = User::where('id', $request->id)->update($body);
+
+            if($request->status == '1'){
+                //set yg lain jadi non aktif
+                $this->nonAktifElse($request->id);
+            }
 
             return response()->json(['message' => 'success update data'], 200);
         }
@@ -144,6 +156,11 @@ class UsersController extends Controller
         $delete = User::where('id', $request->id)->delete();
 
         return response()->json(['message' => 'success delete data'], 200);
+    }
+
+    public function nonAktifElse($id){
+        User::where('id', '<>', $id)->update(['status' => '0']);
+        return true;
     }
 
 

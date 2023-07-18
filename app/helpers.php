@@ -10,6 +10,7 @@ use App\Models\Promo;
 use App\Models\News;
 use App\Models\Simulasi;
 use App\Models\DetailProducts;
+use App\Models\User;
 
 if(!function_exists('getProducts')){
 
@@ -84,6 +85,15 @@ if(!function_exists('getProductsDetail')){
 
     function getProductsDetail($id_products){
         $data = DetailProducts::where('id_products', $id_products)->get();
+        return $data;
+    }
+
+}
+
+if(!function_exists('getUsersActive')){
+
+    function getUsersActive(){
+        $data = User::where('status', '1')->first();
         return $data;
     }
 
