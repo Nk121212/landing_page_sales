@@ -78,8 +78,8 @@
             <div class="col-3">
 
               <h5 class="card-title text-white">
-                <i class="fa fa-map-marker"></i>
-                <b><strong> Location</strong></b>
+                <i class="fa fa-map-marker fa-2x"></i>
+                <!-- <b><strong> Location</strong></b> -->
               </h5>
               <p class="card-text text-white">Banjarbaru_kalsel, simpang 4, Kota Banjar Baru, Kalimantan Selatan 70721</p>
 
@@ -87,8 +87,9 @@
 
             <div class="col-3">
 
-            <h5 class="card-title text-white"><i class="fa fa-phone"></i> 
-              <b><strong>Phone</strong></b>
+            <h5 class="card-title text-white">
+              <i class="fa fa-phone fa-2x"></i> 
+              <!-- <b><strong>Phone</strong></b> -->
             </h5>
             <p class="card-text text-white">{{ getUsersActive()->no_telp }}</p>
 
@@ -96,8 +97,9 @@
 
             <div class="col-3">
 
-            <h5 class="card-title text-white"><i class="fa fa-envelope"></i> 
-              <b><strong>Email</strong></b>
+            <h5 class="card-title text-white">
+              <i class="fa fa-envelope fa-2x"></i> 
+              <!-- <b><strong>Email</strong></b> -->
             </h5>
             <p class="card-text text-white">{{ getUsersActive()->email }}</p>
 
@@ -105,8 +107,9 @@
 
             <div class="col-3">
 
-            <h5 class="card-title text-white"><i class="fa fa-whatsapp"></i> 
-              <b><strong>Whatsapp</strong></b>
+            <h5 class="card-title text-white">
+              <i class="fa fa-whatsapp fa-2x"></i> 
+              <!-- <b><strong>Whatsapp</strong></b> -->
             </h5>
             <p class="card-text text-white">{{ getUsersActive()->no_telp }}</p>
 
