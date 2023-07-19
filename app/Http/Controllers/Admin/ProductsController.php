@@ -89,6 +89,7 @@ class ProductsController extends Controller
     public function update(Request $request){
 
         // dd($request->all());
+
         if(isset($request->photo) || isset($request->brosur) || isset($request->uploadDetail)){
 
             $this->validate($request,[
@@ -119,7 +120,15 @@ class ProductsController extends Controller
             $arrPhoto = array_merge($arrImg, $arrBrosur);
 
         }else{
+
+            $upload = [
+                'image' => "",
+                'brosur' => "",
+                'detail_products' => []
+            ];
+
             $arrPhoto = [];
+
         }
 
         $body = array_merge(
@@ -135,13 +144,13 @@ class ProductsController extends Controller
             ]
         );
 
-        // dd($body);
-
         try
         {
             $action = Products::where('id', $request->id)->update($body);
 
-            $saveDetails = $this->createDetails($request->id, $upload['detail_products']);
+            if(isset($upload['detail_products']) && count($upload['detail_products']) != 0){
+                $saveDetails = $this->createDetails($request->id, $upload['detail_products']);
+            }
 
             return response()->json(['message' => 'success update data'], 200);
         }
