@@ -11,6 +11,7 @@ use App\Models\News;
 use App\Models\Simulasi;
 use App\Models\DetailProducts;
 use App\Models\User;
+use App\Models\Type;
 
 if(!function_exists('getProducts')){
 
@@ -20,6 +21,37 @@ if(!function_exists('getProducts')){
     }
 
 }
+
+if(!function_exists('getProductsGroupByType')){
+
+    function getProductsGroupByType(){
+        $data = Products::select("*")
+        ->orderBy('price', 'asc')
+        ->get()
+        ->unique('id_type');
+
+        return $data;
+    }
+
+}
+
+if(!function_exists('getProductTerkait')){
+
+    function getProductTerkait($id){
+
+        $getFirst = Products::where('id', $id)->first();
+        $id_type = $getFirst->id_type;
+
+        $data = Products::where('id_type', $id_type)
+        ->where('id', '!=', $id)
+        ->get();
+
+        return $data;
+    }
+
+}
+
+
 
 if(!function_exists('getCategori')){
 
@@ -85,6 +117,15 @@ if(!function_exists('getProductsDetail')){
 
     function getProductsDetail($id_products){
         $data = DetailProducts::where('id_products', $id_products)->get();
+        return $data;
+    }
+
+}
+
+if(!function_exists('getMasterType')){
+
+    function getMasterType(){
+        $data = Type::all();
         return $data;
     }
 

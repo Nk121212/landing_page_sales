@@ -76,6 +76,13 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
     Route::post('/my-users/update', [App\Http\Controllers\Admin\UsersController::class, 'update'])->name('admin.my-users.update');
     Route::post('/my-users/delete', [App\Http\Controllers\Admin\UsersController::class, 'delete'])->name('admin.my-users.delete');
 
+    Route::get('/type', [App\Http\Controllers\Admin\TypeController::class, 'index'])->name('admin.type');
+    Route::get('/type/datatable', [App\Http\Controllers\Admin\TypeController::class, 'datatable'])->name('admin.type.datatable');
+    Route::post('/type/create', [App\Http\Controllers\Admin\TypeController::class, 'create'])->name('admin.type.create');
+    Route::post('/type/profile', [App\Http\Controllers\Admin\TypeController::class, 'profile'])->name('admin.type.profile');
+    Route::post('/type/update', [App\Http\Controllers\Admin\TypeController::class, 'update'])->name('admin.type.update');
+    Route::post('/type/delete', [App\Http\Controllers\Admin\TypeController::class, 'delete'])->name('admin.type.delete');
+
 });
 
 Route::group(['prefix' => 'guest'], function() {

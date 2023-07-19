@@ -20,6 +20,7 @@ class Products extends Model
         'categories_id',
         'brosur',
         'slogan',
-        'total_detail'
+        'total_detail',
+        'id_type'
     ];
 }

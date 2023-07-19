@@ -10,7 +10,7 @@
             <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit hic odio.</p> -->
         </div>
         <div class="row w3-services-grids">
-            @foreach(getProducts() as $product)
+            @foreach(getProductsGroupByType() as $product)
             @php 
                 $encodedId = base64_encode($product->id);
             @endphp

@@ -85,6 +85,15 @@
                             <input type="text" class="form-control formatRupiah" id="price" name="price" placeholder="" required>
                         </div>
                         <div class="form-group col-6">
+                            <label for="id_type">Type</label>
+                            <select name="id_type" id="id_type" class="form-control" required>
+                                <option value="" disabled selected>Pilih Type</option>
+                                @foreach(getMasterType() as $data)
+                                    <option value="{{$data->id}}">{{$data->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group col-6">
                             <label for="photo">Photo</label> 
                             <input type="file" class="form-control" name="photo" accept=".jpg,.jpeg,.png,.svg" id="photo">
                         </div>

@@ -385,6 +385,9 @@ Author URL: http://w3layouts.com
                             <li class="nav-item promo">
                                 <a class="nav-link" href="{{ route('admin.promo') }}">Promo</a>
                             </li>
+                            <li class="nav-item promo">
+                                <a class="nav-link" href="{{ route('admin.type') }}">Type</a>
+                            </li>
                             <li class="nav-item profile">
                                 <a class="nav-link" href="{{ route('admin.my-users') }}">Profile</a>
                             </li>

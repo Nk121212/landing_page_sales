@@ -50,6 +50,7 @@ class ProductsController extends Controller
 
             $this->validate($request,[
                 'name' => 'required',
+                'id_type' => 'required',
                 'price' => 'required',
                 'embed' => 'required|url',
                 'categories_id' => 'required|numeric',
@@ -64,6 +65,7 @@ class ProductsController extends Controller
 
         $action = Products::create([
             'name' => $request->name,
+            'id_type' => $request->id_type,
             'price' => str_replace(',', '', $request->price),
             'embed' => str_replace('/watch?v=', '/embed/', $request->embed),
             'categories_id' => $request->categories_id,
@@ -94,6 +96,7 @@ class ProductsController extends Controller
 
             $this->validate($request,[
                 'name' => 'required',
+                'id_type' => 'required',
                 'price' => 'required',
                 'embed' => 'required|url',
                 'categories_id' => 'required|numeric',
@@ -135,6 +138,7 @@ class ProductsController extends Controller
             $arrPhoto,
             [
                 'name' => $request->name,
+                'id_type' => $request->id_type,
                 'price' => str_replace(',', '', $request->price),
                 'embed' => str_replace('/watch?v=', '/embed/', $request->embed),
                 'categories_id' => $request->categories_id,

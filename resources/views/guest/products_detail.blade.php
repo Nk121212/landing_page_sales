@@ -77,6 +77,60 @@
             </div>
         </div>
 
+        <div class="container py-lg-4 mt-5">
+            <div class="title-content text-center mb-lg-2 mb-2">
+                <h6 class="sub-title">Products Terkait</h6>
+                <!-- <h3 class="hny-title">{{ $data->name }}</h3> -->
+            </div>
+            <div>
+                <hr>
+            </div>
+            <div class="row w3-services-grids">
+                <div class="col-lg-12 col-md-12 causes-grid">
+                    <div class="causes-grid-info">
+
+                        @php
+                            $param = base64_decode(app('request')->input('param'));
+                        @endphp
+
+                        <div class="row">
+                            <div class="row w3-services-grids">
+                                @foreach(getProductTerkait($param) as $terkait)
+                                @php 
+                                    $encodedId = base64_encode($terkait->id);
+                                @endphp
+                                <div class="col-lg-4 col-md-6 causes-grid">
+                                    <div class="causes-grid-info">
+                                        <a href="{{ route('guest.products.detail') }}?param={{ $encodedId }}">
+                                            <img src="{{ asset('uploads') }}/{{ $terkait->photo }}" class="img-fuild" alt="">
+                                        </a>
+                                        <div class="text-center">
+
+                                            <p class="card-text mb-0 mt-2">
+                                                @php
+                                                    $nominal = (int)$terkait->price;
+                                                    $rupiah = rupiah($nominal);
+                                                @endphp
+                                                {{ $rupiah }}
+                                            </p>
+
+                                            <a class="btn btn-style btn-primary mt-1" href="{{ route('guest.products.detail') }}?param={{ $encodedId }}">{{ $terkait->name }}</a>
+                                            
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
         <div class="container py-lg-4">
             <div class="title-content text-center mb-lg-2 mb-2">
                 <h6 class="sub-title">Video Terkait</h6>
