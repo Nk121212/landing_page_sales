@@ -1,7 +1,6 @@
 @extends('layouts.theme')
 
-@section ('content') 
-
+@section('content')
     <div class="w3-services py-4">
         <div class="container py-lg-4">
             <div class="title-content text-center mb-lg-2 mb-2">
@@ -40,18 +39,20 @@
                 <div class="col-lg-4 col-md-6 causes-grid">
                     <div class="causes-grid-info">
                         <a>
-                            <img src="https://radarpekalongan.disway.id/uploads/post-1.-dwi-ADV-nasmoco.jpg" class="img-fuild" alt="">
+                            <img src="{{ asset('uploads') }}/{{ getUsersActive()->photo }}" class="img-fuild"
+                                alt="">
                         </a>
                         <div class="text-center">
+                            <a href="https://wa.me/{{ getUsersActive()->no_telp }}"
+                                class="btn btn-style btn-primary mt-3">Hubungi Kami</a>
 
-                            <button class="btn btn-style btn-primary mt-3">Hubungi Kami</button>
                             <p class="card-text mb-0 mt-2 text-danger" style="text-transform: uppercase;">
-                                M. Ridwan Taufik
+                                {{ getUsersActive()->name }}
                             </p>
                             <p class="card-text mb-0 mt-2">
                                 Sales Executive
                             </p>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -68,10 +69,10 @@
                 <hr>
             </div>
             <div class="owl-product-carousel owl-carousel owl-theme text-center">
-                @foreach(getProductsDetail($data->id) as $details)
-                <div class="item">
-                    <img src="{{ asset('uploads') }}/details/{{ $details->photo_detail }}" style="width:100%;">
-                </div>
+                @foreach (getProductsDetail($data->id) as $details)
+                    <div class="item">
+                        <img src="{{ asset('uploads') }}/details/{{ $details->photo_detail }}" style="width:100%;">
+                    </div>
                 @endforeach
             </div>
         </div>
@@ -88,13 +89,14 @@
                 <div class="col-lg-12 col-md-6 causes-grid">
                     <div class="causes-grid-info">
 
-                        <iframe src="{{ $data->embed }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" style="width:100%; height:400px;" allowfullscreen></iframe>
-                        
+                        <iframe src="{{ $data->embed }}" title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            style="width:100%; height:400px;" allowfullscreen></iframe>
+
                     </div>
                 </div>
             </div>
         </div>
 
     </div>
-
 @endsection
