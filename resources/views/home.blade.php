@@ -2,6 +2,55 @@
 
 @section('content')
 
+<style>
+    #scroll-container {
+    /* position:fixed; */
+    top:6rem;
+    /* border: 3px solid black; */
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 10;
+    width: 100%;
+    }
+
+    #scroll-text {
+    /* animation properties */
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    
+    -moz-animation: my-animation 15s linear infinite;
+    -webkit-animation: my-animation 15s linear infinite;
+    animation: my-animation 15s linear infinite;
+    }
+
+    /* for Firefox */
+    @-moz-keyframes my-animation {
+    from { -moz-transform: translateX(100%); }
+    to { -moz-transform: translateX(-100%); }
+    }
+
+    /* for Chrome */
+    @-webkit-keyframes my-animation {
+    from { -webkit-transform: translateX(100%); }
+    to { -webkit-transform: translateX(-100%); }
+    }
+
+    @keyframes my-animation {
+        from {
+            -moz-transform: translateX(100%);
+            -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+        }
+        to {
+            -moz-transform: translateX(-100%);
+            -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+        }
+    }
+
+</style>
+
 <section class="w3l-main-slider position-relative mt-1" id="home">
     <div class="companies20-content">
       <div class="owl-one owl-carousel owl-theme owl-loaded owl-drag">
@@ -47,8 +96,16 @@
     </div>
 </section>
 
+<section class="mt-4 text-center">
+    <div id="scroll-container">
+    <div id="scroll-text">
+        <h3>Selamat Datang di Dealer Hyundai Banjarbaru</h3>
+    <div>
+    </div>
+</section>
+
 @foreach(getPromo() as $promo)
-<section class="w3l-content-3 mt-2">
+<section class="w3l-content-3 mt-0">
     <!-- /content-3-main-->
     <div class="content-3-mian py-5">
       <div class="container py-lg-5">

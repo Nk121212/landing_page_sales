@@ -88,7 +88,48 @@
               </div>
             </div> -->
 
-            footer nih bos
+            <div class="row">
+              <div class="col-2"></div>
+              <div class="col-4 text-left">
+                <h5 style="color:white!important;margin-bottom:1rem;">Kabupaten</h5>
+                <p>Balangan</p>
+                <p>Banjar</p>
+                <p>Barito Kuala</p>
+                <p>Hulu Sungai Selatan</p>
+                <p>Hulu Sungai Tengah</p>
+                <p>Hulu Sungai Utara</p>
+                <p>Kota Baru</p>
+                <p>Tabalong</p>
+                <p>Tanah Bumbu</p>
+                <p>Tanah Laut</p>
+                <p>Tapin</p>
+              </div>
+              <div class="col-4 text-left">
+                <h5 style="color:white!important;margin-bottom:1rem;">Kota</h5>
+                <p>Kota Banjarbaru</p>
+                <p>Kota Banjarmasin</p>
+              </div>
+              <div class="col-2"></div>
+              <!-- Balangan | Banjar | Barito Kuala | Hulu Sungai Selatan | Hulu Sungai Tengah |
+              Hulu Sungai Utara | Kota Baru | Tabalong | Tanah Bumbu | Tanah Laut | Tapin |
+              Kota BanjarBaru | Kota Banjarmasin  -->
+            </div>
+
+            <!-- <ul class="a">
+              <li style="float: center;margin-left: 5px;">Balangan</li>
+              <li style="float: center;margin-left: 5px;">Banjar |</li>
+              <li style="float: center;margin-left: 5px;">Barito Kuala |</li>
+              <li style="float: center;margin-left: 5px;">Hulu Sungai Selatan |</li>
+              <li style="float: center;margin-left: 5px;">Hulu Sungai Tengah |</li>
+              <li style="float: center;margin-left: 5px;">Hulu Sungai Utara |</li>
+              <li style="float: center;margin-left: 5px;">Kota Baru |</li>
+              <li style="float: center;margin-left: 5px;">Tabalong |</li>
+              <li style="float: center;margin-left: 5px;">Tanah Bumbu |</li>
+              <li style="float: center;margin-left: 5px;">Tanah Laut |</li>
+              <li style="float: center;margin-left: 5px;">Tapin |</li>
+              <li style="float: center;margin-left: 5px;">Kota BanjarBaru |</li>
+              <li style="float: center;margin-left: 5px;">Kota Banjarmasin |</li>
+            </ul> -->
 
           </div>
         </div>
