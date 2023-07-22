@@ -51,6 +51,7 @@ class UsersController extends Controller
             $this->validate($request,[
                 'name' => 'required',
                 'email' => 'required',
+                'alamat_kantor' => 'required',
                 'password' => 'required',
                 'photo' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048']
             ]);
@@ -62,6 +63,7 @@ class UsersController extends Controller
 
         $action = User::create([
             'name' => $request->name,
+            'alamat_kantor' => $request->alamat_kantor,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'no_telp' => $request->no_telp,
@@ -92,6 +94,7 @@ class UsersController extends Controller
 
             $this->validate($request,[
                 'name' => 'required',
+                'alamat_kantor' => 'required',
                 'email' => 'required',
                 'password' => 'required',
                 'photo' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048']
@@ -123,6 +126,7 @@ class UsersController extends Controller
             $arrPhoto,
             [
                 'name' => $request->name,
+                'alamat_kantor' => $request->alamat_kantor,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'no_telp' => $request->no_telp,
