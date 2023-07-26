@@ -21,8 +21,14 @@ class CreateProductsTable extends Migration
             $table->string('photo');
             $table->string('embed');
             $table->string('brosur');
-            $table->integer('categories_id');
+            $table->unsignedBigInteger('categories_id');
+            $table->string('slogan');
+            $table->integer('total_detail');
+            $table->unsignedBigInteger('id_type');
             $table->timestamps();
+
+            $table->foreign('categories_id')->references('id')->on('categories')->onUpdate('CASCADE')->onDelete('CASCADE');
+            $table->foreign('id_type')->references('id')->on('master_type')->onUpdate('CASCADE')->onDelete('CASCADE');
         });
     }
 
@@ -33,6 +39,11 @@ class CreateProductsTable extends Migration
      */
     public function down()
     {
+        Schema::table('products', function (Blueprint $table) {
+            $table->dropForeign(['categories_id', 'id_type']);
+            $table->dropColumn('categories_id', 'id_type');
+        });
+
         Schema::dropIfExists('products');
     }
 }

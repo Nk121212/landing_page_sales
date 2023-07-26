@@ -20,9 +20,15 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+            $table->string('no_telp')->nullable();
+            $table->string('photo')->nullable();
+            $table->string('instagram')->nullable();
+            $table->integer('status')->nullable();
+            $table->text('alamat_kantor')->nullable();
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.
