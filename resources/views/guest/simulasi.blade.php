@@ -16,8 +16,8 @@
             @foreach(getSimulasi() as $simulasi)
             <div class="col-lg-6 col-md-6 causes-grid">
                 <div class="causes-grid-info">
-                    <a href="{{ asset('uploads') }}/{{ $simulasi->photo }}" target="_blank">
-                        <img src="{{ asset('uploads') }}/{{ $simulasi->photo }}" class="img-fuild" alt="" width="100" height="300">
+                    <a href="{{ asset('storage/uploads') }}/{{ $simulasi->photo }}" target="_blank">
+                        <img src="{{ asset('storage/uploads') }}/{{ $simulasi->photo }}" class="img-fuild" alt="" width="100" height="300">
                     </a>
                     <div class="text-left">
 

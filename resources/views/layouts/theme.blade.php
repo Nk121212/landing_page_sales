@@ -465,28 +465,28 @@ Author URL: http://w3layouts.com
 
 
     <!-- <script src="http://maps.googleapis.com/maps/api/js"></script> -->
-    <script async
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOnRnCM70E5HWQ5wgDJ8SOz955ILS8jrc&callback=initMap"></script>
+    <!-- <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOnRnCM70E5HWQ5wgDJ8SOz955ILS8jrc&callback=initMap"></script> -->
 
     <script>
-        let map;
-        $(document).ready(function() {
-            initMap();
-        })
+        // let map;
+        // $(document).ready(function() {
+        //     initMap();
+        // })
 
-        async function initMap() {
-            const {
-                Map
-            } = await google.maps.importLibrary("maps");
+        // async function initMap() {
+        //     const {
+        //         Map
+        //     } = await google.maps.importLibrary("maps");
 
-            map = new Map(document.getElementById("map"), {
-                center: {
-                    lat: -34.397,
-                    lng: 150.644
-                },
-                zoom: 8,
-            });
-        }
+        //     map = new Map(document.getElementById("map"), {
+        //         center: {
+        //             lat: -34.397,
+        //             lng: 150.644
+        //         },
+        //         zoom: 8,
+        //     });
+        // }
     </script>
 
     <div style="margin-top: 2%;margin-bottom: 10%;">

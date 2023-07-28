@@ -159,26 +159,27 @@ if(!function_exists('uploadFile')){
             $fileNameTrim = time();
         }
 
+        $name = str_replace(' ', '_', $fileNameTrim);
+
         if(isset($request->photo)){
-            $imageName = $prefix_file_name.'_'.trim($fileNameTrim, " ").'.'.$request->photo->getClientOriginalExtension();
-            $request->photo->move(public_path('/uploads'), $imageName);
+            $imageName = strtolower($prefix_file_name.'_'.$name.'.'.$request->photo->getClientOriginalExtension());
+            $request->photo->move(storage_path('/app/public/uploads'), $imageName);
         }
 
         if(isset($request->brosur)){
-            $brosurName = $prefix_file_name.'_brosur_'.trim($fileNameTrim, " ").'.'.$request->brosur->getClientOriginalExtension();
-            $request->brosur->move(public_path('/uploads/brosur'), $brosurName);
+            $brosurName = strtolower($prefix_file_name.'_brosur_'.$name.'.'.$request->brosur->getClientOriginalExtension());
+            $request->brosur->move(storage_path('/app/public/uploads'), $brosurName);
         }
 
         $detailUpload = [];
         if(isset($request->uploadDetail)){
             $i=0;
             foreach ($request->uploadDetail as $file) {
-                $fileName = time().$i.'.'.$file->getClientOriginalExtension();
-                $file->move(public_path('/uploads/details'), $fileName);
+                $fileName = strtolower(time().$i.'.'.$file->getClientOriginalExtension());
+                $file->move(storage_path('/app/public/uploads'), $fileName);
                 $detailUpload[$i] = $fileName;
                 $i++;
             }
-
         }
 
         return ['image' => $imageName, 'brosur' => $brosurName, 'detail_products' => $detailUpload];

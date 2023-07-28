@@ -14,7 +14,7 @@
                 <div class="col-lg-8 col-md-6 causes-grid">
                     <div class="causes-grid-info">
                         <a>
-                            <img src="{{ asset('uploads') }}/{{ $data->photo }}" class="img-fuild" alt="">
+                            <img src="{{ asset('storage/uploads') }}/{{ $data->photo }}" class="img-fuild" alt="">
                         </a>
                         <div class="text-center mt-2">
                             <h3 class="sub-title bg-danger text-white" style="border-radius: 10px;">{{ $data->name }}</h3>
@@ -23,7 +23,7 @@
                             <hr>
                         </div>
                         <div class="text-left mt-2">
-                            <a href="{{ URL::asset('uploads') }}/{{ $data->brosur }}" target="_blank">
+                            <a href="{{ URL::asset('storage/uploads') }}/{{ $data->brosur }}" target="_blank">
                                 <i class="fa fa-download" aria-hidden="true"></i>
                                 Download Brosur
                             </a>
@@ -39,7 +39,7 @@
                 <div class="col-lg-4 col-md-6 causes-grid">
                     <div class="causes-grid-info">
                         <a>
-                            <img src="{{ asset('uploads') }}/{{ getUsersActive()->photo }}" class="img-fuild"
+                            <img src="{{ asset('storage/uploads') }}/{{ getUsersActive()->photo }}" class="img-fuild"
                                 alt="">
                         </a>
                         <div class="text-center">
@@ -71,7 +71,7 @@
             <div class="owl-product-carousel owl-carousel owl-theme text-center">
                 @foreach (getProductsDetail($data->id) as $details)
                     <div class="item">
-                        <img src="{{ asset('uploads') }}/details/{{ $details->photo_detail }}" style="width:100%;">
+                        <img src="{{ asset('storage/uploads') }}/{{ $details->photo_detail }}" style="width:100%;">
                     </div>
                 @endforeach
             </div>
@@ -102,7 +102,7 @@
                                 <div class="col-lg-4 col-md-6 causes-grid">
                                     <div class="causes-grid-info">
                                         <a href="{{ route('guest.products.detail') }}?param={{ $encodedId }}">
-                                            <img src="{{ asset('uploads') }}/{{ $terkait->photo }}" class="img-fuild" alt="">
+                                            <img src="{{ asset('storage/uploads') }}/{{ $terkait->photo }}" class="img-fuild" alt="">
                                         </a>
                                         <div class="text-center">
 

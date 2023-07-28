@@ -1,7 +1,6 @@
 @extends('layouts.theme')
 
-@section ('content') 
-
+@section('content')
 <div class="w3-services py-5">
     <div class="container py-lg-4">
         <div class="title-content text-left mb-lg-5 mb-4">
@@ -17,7 +16,7 @@
             <div class="col-lg-4 col-md-6 causes-grid">
                 <div class="causes-grid-info">
                     <a href="{{ route('guest.products.detail') }}?param={{ $encodedId }}">
-                        <img src="{{ asset('uploads') }}/{{ $product->photo }}" class="img-fuild" alt="">
+                        <img src="{{ asset('storage/uploads') }}/{{ $product->photo }}" class="img-fuild" alt="">
                     </a>
                     <div class="text-center">
 
@@ -38,6 +37,5 @@
             @endforeach
         </div>
     </div>
-</div> 
-
+</div>
 @endsection

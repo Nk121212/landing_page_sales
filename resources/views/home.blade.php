@@ -63,7 +63,7 @@
                 <div class="owl-item active" style="width: 1349px;">
                     <div class="item">
                         <li>
-                            <div class="slider-info banner-view banner-top2 bg bg2" style="background: url('{{ asset('uploads') }}/{{ $product->photo }}') no-repeat center;">
+                            <div class="slider-info banner-view banner-top2 bg bg2" style="background: url('{{ asset('storage/uploads') }}/{{ $product->photo }}') no-repeat center;">
                                 <div class="banner-info">
                                     <div class="container">
                                         <div class="banner-info-bg">
@@ -111,7 +111,7 @@
       <div class="container py-lg-5">
         <div class="content-info-in row">
           <div class="col-lg-6">
-            <img src="{{ asset('uploads') }}/{{ $promo->photo }}" alt="" class="img-fluid">
+            <img src="{{ asset('storage/uploads') }}/{{ $promo->photo }}" alt="" class="img-fluid">
           </div>
           <div class="col-lg-6 mt-lg-0 mt-5 about-right-faq align-self  pl-lg-5">
             <div class="title-content text-left mb-2">
@@ -148,7 +148,7 @@
                                         <div class="item">
                                             <div class="slider-info mt-lg-4 mt-3">
                                                 <div class="img-circle">
-                                                    <img src="{{ asset('uploads') }}/{{ $testi->photo }}" class="img-fluid rounded" alt="client image">
+                                                    <img src="{{ asset('storage/uploads') }}/{{ $testi->photo }}" class="img-fluid rounded" alt="client image">
                                                 </div>
                                                 <div class="message">
                                                     {{ $testi->description }}
@@ -162,7 +162,7 @@
                                         <div class="item">
                                             <div class="slider-info mt-lg-4 mt-3">
                                                 <div class="img-circle">
-                                                    <img src="{{ asset('uploads') }}/{{ $testi->photo }}" class="img-fluid rounded" alt="client image">
+                                                    <img src="{{ asset('storage/uploads') }}/{{ $testi->photo }}" class="img-fluid rounded" alt="client image">
                                                 </div>
                                                 <div class="message">
                                                     {{ $testi->description }}

@@ -115,7 +115,7 @@
                         width: '20%',
                         className: 'dt-center',
                         render: function(data, type) {
-                            return '<img src="{{ URL::asset("uploads") }}/'+data+'" style="width: 100%;height: 5rem;"></img>';
+                            return '<img src="{{ URL::asset("storage/uploads") }}/'+data+'" style="width: 100%;height: 5rem;"></img>';
                         }
                     },
                     {

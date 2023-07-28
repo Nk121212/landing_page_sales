@@ -55,7 +55,7 @@
       </div>
     </div>
     <div class="col-4 text-center">
-      <img src="{{ asset('uploads') }}/{{ getUsersActive()->photo }}" alt="" class="img-fluid" style="width:50%;height:100%;">
+      <img src="{{ asset('storage/uploads') }}/{{ getUsersActive()->photo }}" alt="" class="img-fluid" style="width:50%;height:100%;">
     </div>
     <div class="col-1"></div>
   </div>

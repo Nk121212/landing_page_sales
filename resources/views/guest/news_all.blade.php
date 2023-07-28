@@ -8,7 +8,7 @@
         <div class="content-info-in row">
         @foreach(getNews() as $news)
             <div class="col-lg-4 mt-lg-0 mt-5 about-right-faq align-self pl-lg-5" style="margin-bottom: 10px;">
-                <img src="{{ asset('uploads') }}/{{ $news->photo }}" alt="" class="img-fluid" style="width: 100%;height: 186px;">
+                <img src="{{ asset('storage/uploads') }}/{{ $news->photo }}" alt="" class="img-fluid" style="width: 100%;height: 186px;">
             </div>
             <div class="col-lg-6" style="margin-bottom: 10px;">
 
