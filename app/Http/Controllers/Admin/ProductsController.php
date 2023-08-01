@@ -54,12 +54,17 @@ class ProductsController extends Controller
                 'price' => 'required',
                 'embed' => 'required|url',
                 'categories_id' => 'required|numeric',
-                'brosur' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
-                'photo' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048']
+                // 'brosur' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+                // 'photo' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048']
             ]);
     
-            $upload = uploadPhoto($request);
-            // $uploadBrosur = uploadBrosur($request);
+            // $upload = uploadPhoto($request);
+            // $uploadProduct = uploadProduct($request);
+
+            // if($uploadProduct['status']){
+            //     $uploadBrosur = uploadBrosur($request);
+            //     $uploadDetails = uploadDetails($request, $uploadProduct['product_image_name']);
+            // }
 
         }
 
@@ -70,13 +75,30 @@ class ProductsController extends Controller
             'embed' => str_replace('/watch?v=', '/embed/', $request->embed),
             'categories_id' => $request->categories_id,
             'description' => $request->description,
-            'brosur' => isset($upload) ? $upload['brosur'] : '',
-            'photo' => isset($upload) ? $upload['image'] : '',
+            // 'brosur' => isset($uploadBrosur) ? $uploadBrosur['brosur'] : '',
+            // 'photo' => isset($uploadProduct) ? $uploadProduct['image'] : '',
             'slogan' => $request->slogan,
             'total_detail' => $request->total_detail
         ]);
 
-        $saveDetails = $this->createDetails($action->id, $upload['detail_products']);
+        if($action){
+
+            $uploadProduct = uploadProduct($request, $action->id);
+
+            if($uploadProduct['status']){
+
+                $uploadBrosur = uploadBrosur($request, $action->id);
+                $uploadDetails = uploadDetails($request, $uploadProduct['product_image_name']);
+                $saveDetails = $this->createDetails($action->id, $uploadDetails['detail_products']);
+
+                $body = [
+                    'photo' => isset($uploadProduct) ? $uploadProduct['image'] : '',
+                    'brosur' => isset($uploadBrosur) ? $uploadBrosur['brosur'] : '',
+                ];
+
+                $update = Products::where('id', $action->id)->update($body);
+            }
+        }
 
         return response()->json(['message' => 'success insert data'], 201);
     }
@@ -100,31 +122,36 @@ class ProductsController extends Controller
                 'price' => 'required',
                 'embed' => 'required|url',
                 'categories_id' => 'required|numeric',
-                'brosur' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
-                'photo' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048']
+                // 'brosur' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+                // 'photo' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048']
             ]);
     
-            $upload = uploadPhoto($request);
-            // $uploadBrosur = uploadBrosur($request);
+            $uploadProduct = uploadProduct($request, $request->id);
+            $uploadBrosur = uploadBrosur($request, $request->id);
+            $uploadDetails = uploadDetails($request, $uploadProduct['product_image_name']);
+
+            // if($uploadProduct['status']){
+                
+            // }
 
         }
 
-        if(isset($upload)){
+        if(isset($uploadProduct)){
 
             $arrImg = [];
             $arrBrosur = [];
-            if($upload['image'] !== ""){
-                $arrImg = ['photo' => $upload['image']];
+            if($uploadProduct['image'] !== ""){
+                $arrImg = ['photo' => $uploadProduct['image']];
             }
-            if($upload['brosur'] !== ""){
-                $arrBrosur = ['brosur' => $upload['brosur']];
+            if($uploadBrosur['brosur'] !== ""){
+                $arrBrosur = ['brosur' => $uploadBrosur['brosur']];
             }
 
             $arrPhoto = array_merge($arrImg, $arrBrosur);
 
         }else{
 
-            $upload = [
+            $uploadProduct = [
                 'image' => "",
                 'brosur' => "",
                 'detail_products' => []
@@ -152,8 +179,8 @@ class ProductsController extends Controller
         {
             $action = Products::where('id', $request->id)->update($body);
 
-            if(isset($upload['detail_products']) && count($upload['detail_products']) != 0){
-                $saveDetails = $this->createDetails($request->id, $upload['detail_products']);
+            if(isset($uploadDetails['detail_products']) && count($uploadDetails['detail_products']) != 0){
+                $saveDetails = $this->createDetails($request->id, $uploadDetails['detail_products']);
             }
 
             return response()->json(['message' => 'success update data'], 200);

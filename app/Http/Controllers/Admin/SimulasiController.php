@@ -48,14 +48,20 @@ class SimulasiController extends Controller
             $this->validate($request,[
                 'photo' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048']
             ]);
-    
-            $upload = uploadPhoto($request);
 
         }
 
         $action = Simulasi::create([
-            'photo' => isset($upload) ? $upload['image'] : ''
+            'photo' => '-'
         ]);
+
+        $upload = uploadPhoto($request, $action->id);
+
+        $body = [
+            'photo' => $upload['image']
+        ];
+
+        $update = Products::where('id', $action->id)->update($body);
 
         return response()->json(['message' => 'success insert data'], 201);
     }

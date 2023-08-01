@@ -70,6 +70,9 @@
                 <div class="modal-body">
 
                     <input type="hidden" id="id" name="id">
+                    <!-- <input type="text" name="photo_name" id="photo_name">
+                    <input type="text" name="brosur_name" id="brosur_name">
+                    <input type="text" name="detail_name" id="detail_name"> -->
 
                     <div class="row">
                         <div class="form-group col-6">
@@ -177,7 +180,7 @@
                         width: '20%',
                         className: 'dt-center',
                         render: function(data, type) {
-                            return '<img src="{{ URL::asset("storage/uploads") }}/'+data+'" style="width: 100%;height: 5rem;"></img>';
+                            return '<img src="{{ URL::asset("storage/uploads") }}/'+data+'?'+new Date().getTime()+'" style="width: 100%;height: 5rem;"></img>';
                         }
                     },
                     {
@@ -186,7 +189,7 @@
                         width: '30%',
                         className: 'dt-center',
                         render: function(data, type) {
-                            return '<a target="_blank" href="'+data+'">'+data+'</a>';
+                            return '<a target="_blank" href="'+data+'?'+new Date().getTime()+'">'+data+'</a>';
                         }
                     },
                     {
@@ -195,7 +198,7 @@
                         width: '20%',
                         className: 'dt-center',
                         render: function(data, type) {
-                            return '<img src="{{ URL::asset("storage/uploads") }}/'+data+'" style="width: 100%;height: 5rem;"></img>';
+                            return '<img src="{{ URL::asset("storage/uploads") }}/'+data+'?'+new Date().getTime()+'" style="width: 100%;height: 5rem;"></img>';
                         }
                     },
                     {

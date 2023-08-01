@@ -140,49 +140,83 @@ if(!function_exists('getUsersActive')){
 
 }
 
+if(!function_exists('uploadProduct')){
 
+    function uploadProduct(Request $request, $id){
 
-if(!function_exists('uploadFile')){
-
-    function uploadPhoto(Request $request){
-
-        $explode = explode(".", Route::currentRouteName());
-        $prefix_file_name = $explode[1];
-
-        $imageName = '';
-        $brosurName = '';
-        if(isset($request->name)){
-            $fileNameTrim = $request->name;
-        }elseif(isset($request->judul)){
-            $fileNameTrim = $request->judul;
-        }else{
-            $fileNameTrim = time();
-        }
-
-        $name = str_replace(' ', '_', $fileNameTrim);
-
+        $imageName = "";
+        $status = false;
+        $name_key = "";
         if(isset($request->photo)){
-            $imageName = strtolower($prefix_file_name.'_'.$name.'.'.$request->photo->getClientOriginalExtension());
+
+            $name_key = 'product_'. base64_encode($id);
+            $imageName = $name_key.'.'.$request->photo->getClientOriginalExtension();
             $request->photo->move(storage_path('/app/public/uploads'), $imageName);
+
+            $status = true;
+
         }
 
+        return ['image' => $imageName, 'product_image_name' => $name_key, 'status' => $status];
+
+    }
+
+}
+
+if(!function_exists('uploadBrosur')){
+
+    function uploadBrosur(Request $request, $id){
+
+        $brosurName = "";
+        $status = false;
         if(isset($request->brosur)){
-            $brosurName = strtolower($prefix_file_name.'_brosur_'.$name.'.'.$request->brosur->getClientOriginalExtension());
+            $name_key = 'brosur_'. base64_encode($id);
+            $brosurName = $name_key.'.'.$request->brosur->getClientOriginalExtension();
             $request->brosur->move(storage_path('/app/public/uploads'), $brosurName);
+
+            $status = true;
         }
+
+        return ['brosur' => $brosurName, 'status' => $status];
+
+    }
+
+}
+
+if(!function_exists('uploadDetails')){
+
+    function uploadDetails(Request $request, $product_image_name){
 
         $detailUpload = [];
         if(isset($request->uploadDetail)){
             $i=0;
             foreach ($request->uploadDetail as $file) {
-                $fileName = strtolower(time().$i.'.'.$file->getClientOriginalExtension());
+                $name_key = 'detail_product_'.$product_image_name.'_'.$i;
+                $fileName = strtolower($name_key.'.'.$file->getClientOriginalExtension());
                 $file->move(storage_path('/app/public/uploads'), $fileName);
                 $detailUpload[$i] = $fileName;
                 $i++;
             }
         }
 
-        return ['image' => $imageName, 'brosur' => $brosurName, 'detail_products' => $detailUpload];
+        return ['detail_products' => $detailUpload];
+
+    }
+
+}
+
+if(!function_exists('uploadPhoto')){
+
+    function uploadPhoto(Request $request, $id=""){
+
+        $explode = explode(".", Route::currentRouteName());
+        $prefix_file_name = $explode[1];
+
+        $name_key = (isset($request->id)) ? base64_encode($request->id) : base64_encode($id);
+        $imageName = $prefix_file_name.'_'.$name_key.'.'.$request->photo->getClientOriginalExtension();
+        $request->photo->move(storage_path('/app/public/uploads'), $imageName);
+
+        return ['image' => $imageName];
 
     }
 

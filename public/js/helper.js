@@ -41,6 +41,10 @@ function getProfile(id, url_profile, url_update){
                     $('input[name="'+k+'"]').val(v).trigger('keyup');
                     $('select[name="'+k+'"]').val(v).trigger('change');
                     $('textarea[name="'+k+'"]').text(v);
+                }else if(k == 'photo'){
+                    $('#photo_name').val(v);
+                }else if(k == 'brosur'){
+                    $('#brosur_name').val(v);
                 }
             });
 
