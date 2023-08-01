@@ -52,18 +52,26 @@ class NewsController extends Controller
             $this->validate($request, [
                 'judul' => 'required',
                 'news_date' => 'required',
-                'photo' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048']
+                // 'photo' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048']
             ]);
 
-            $upload = uploadPhoto($request);
+            // $upload = uploadPhoto($request);
         }
 
         $action = News::create([
             'judul' => $request->judul,
             'news_date' => $request->news_date,
             'description' => $request->description,
-            'photo' => isset($upload) ? $upload['image'] : ''
+            'photo' => '-'
         ]);
+
+        $upload = uploadPhoto($request, $action->id);
+
+        $body = [
+            'photo' => $upload['image']
+        ];
+
+        $update = News::where('id', $action->id)->update($body);
 
         return response()->json(['message' => 'success insert data'], 201);
     }

@@ -61,7 +61,7 @@ class SimulasiController extends Controller
             'photo' => $upload['image']
         ];
 
-        $update = Products::where('id', $action->id)->update($body);
+        $update = Simulasi::where('id', $action->id)->update($body);
 
         return response()->json(['message' => 'success insert data'], 201);
     }

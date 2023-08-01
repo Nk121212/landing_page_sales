@@ -56,7 +56,7 @@ class UsersController extends Controller
                 'photo' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048']
             ]);
     
-            $upload = uploadPhoto($request);
+            // $upload = uploadPhoto($request);
             // $uploadBrosur = uploadBrosur($request);
 
         }
@@ -68,9 +68,17 @@ class UsersController extends Controller
             'password' => Hash::make($request->password),
             'no_telp' => $request->no_telp,
             'instagram' => $request->instagram,
-            'photo' => $upload['image'],
+            'photo' => '-',
             'status' => $request->status
         ]);
+
+        $upload = uploadPhoto($request);
+
+        $body = [
+            'photo' => $upload['image']
+        ];
+
+        $update = User::where('id', $action->id)->update($body);
 
         if($request->status == '1'){
             //set yg lain jadi non aktif
@@ -97,7 +105,7 @@ class UsersController extends Controller
                 'alamat_kantor' => 'required',
                 'email' => 'required',
                 'password' => 'required',
-                'photo' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048']
+                // 'photo' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048']
             ]);
     
             $upload = uploadPhoto($request);

@@ -51,7 +51,7 @@ class TestimoniController extends Controller
                 'photo' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048']
             ]);
     
-            $upload = uploadPhoto($request);
+            // $upload = uploadPhoto($request);
 
         }
 
@@ -60,6 +60,14 @@ class TestimoniController extends Controller
             'description' => $request->description,
             'photo' => isset($upload) ? $upload['image'] : ''
         ]);
+
+        $upload = uploadPhoto($request);
+
+        $body = [
+            'photo' => $upload['image']
+        ];
+
+        $update = Testimoni::where('id', $action->id)->update($body);
 
         return response()->json(['message' => 'success insert data'], 201);
     }

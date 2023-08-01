@@ -48,19 +48,27 @@ class PromoController extends Controller
 
             $this->validate($request,[
                 'name' => 'required',
-                'photo' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+                // 'photo' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
                 'description' => 'required',
             ]);
     
-            $upload = uploadPhoto($request);
+            // $upload = uploadPhoto($request);
 
         }
 
         $action = Promo::create([
             'name' => $request->name,
             'description' => $request->description,
-            'photo' => isset($upload) ? $upload['image'] : ''
+            'photo' => '-'
         ]);
+
+        $upload = uploadPhoto($request);
+
+        $body = [
+            'photo' => $upload['image']
+        ];
+
+        $update = Promo::where('id', $action->id)->update($body);
 
         return response()->json(['message' => 'success insert data'], 201);
     }
