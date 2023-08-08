@@ -69,7 +69,8 @@ class UsersController extends Controller
             'no_telp' => $request->no_telp,
             'instagram' => $request->instagram,
             'photo' => '-',
-            'status' => $request->status
+            'status' => $request->status,
+            'description_profile' => $request->description_profile
         ]);
 
         $upload = uploadPhoto($request);
@@ -139,7 +140,8 @@ class UsersController extends Controller
                 'password' => Hash::make($request->password),
                 'no_telp' => $request->no_telp,
                 'instagram' => $request->instagram,
-                'status' => $request->status
+                'status' => $request->status,
+                'description_profile' => $request->description_profile
             ]
         );
 

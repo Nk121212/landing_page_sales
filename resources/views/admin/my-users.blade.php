@@ -105,6 +105,10 @@
                                 <textarea class="form-control" name="alamat_kantor" id="alamat_kantor" cols="30" rows="4"></textarea>
                             </div>
                             <div class="form-group col-6">
+                                <label for="description_profile">Deskripsi Profil</label>
+                                <textarea class="form-control" name="description_profile" id="description_profile" cols="30" rows="4"></textarea>
+                            </div>
+                            <div class="form-group col-6">
                                 <label for="status">Status</label>
                                 <select name="status" id="status" class="form-control">
                                     <option value="" disabled selected>Pilih Status</option>

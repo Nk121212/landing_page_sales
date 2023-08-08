@@ -2,7 +2,7 @@
 
 @section ('content') 
 
-    <div class="container mt-5">
+    <div class="container mt-5 table-responsive">
         <h1 class="mb-4 text-center">List Data Products</h1>
         <button class="btn btn-secondary mb-2" id="btn-add">Tambah Data</button>
         <table class="table table-bordered my-datatable">
@@ -197,8 +197,14 @@
                         name: 'brosur',
                         width: '20%',
                         className: 'dt-center',
-                        render: function(data, type) {
-                            return '<img src="{{ URL::asset("storage/uploads") }}/'+data+'?'+new Date().getTime()+'" style="width: 100%;height: 5rem;"></img>';
+                        render: function(data, type, row, meta) {
+                            // console.log(row);
+                            if(row.is_brosur_img === true || row.is_brosur_img == 'true'){
+                                return '<img src="{{ URL::asset("storage/uploads") }}/'+data+'?'+new Date().getTime()+'" style="width: 100%;height: 5rem;"></img>';
+                            }else{
+                                return '<a href="{{ URL::asset("storage/uploads") }}/'+data+'">{{ URL::asset("storage/uploads") }}/'+data+'</a>';
+                            }
+                            
                         }
                     },
                     {

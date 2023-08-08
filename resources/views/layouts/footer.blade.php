@@ -1,94 +1,11 @@
 <footer class="w3l-footer-66">
-    <section class="footer-inner-main">
+    <!-- <section class="footer-inner-main">
       <div class="footer-hny-grids py-5">
         <div class="container py-lg-4">
-          <div class="text-txt">
+          <div class="text-txt"> -->
             
-            <!-- <div class="right-side">
-              <div class="row sub-columns">
-                <div class="col-lg-4 col-md-6 sub-one-left pr-lg-4">
-                  <h2>
-                    <a class="navbar-brand" href="#">
-                      <img src="{{ asset('assets/images/logo.png') }}" alt="No Logo" style="width: 86%;">
-                    </a>
-                  </h2>
-                  <p class="pr-lg-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Consequuntur hic odio voluptatem tenetur consequatur.Lorem ipsum dolor sit amet
-                    consectetur adipisicing elit. </p>
-                  <div class="columns-2">
-                    <ul class="social">
-                      <li>
-                        <a href="#facebook"><span class="fa fa-facebook" aria-hidden="true"></span></a>
-                      </li>
-                      <li>
-                        <a href="#linkedin"><span class="fa fa-linkedin" aria-hidden="true"></span></a>
-                      </li>
-                      <li>
-                        <a class="contact_wa_btn" target="_blank" href="https://wa.me/{{ getUsersActive()->no_telp }}" title="Share to WhatsApp">
-                          <i class="fa fa-whatsapp"></i>
-                        </a>
-                      </li>
-                      <li>
-                        <a class="" target="_blank" href="tel:{{ getUsersActive()->no_telp }}" title="Call Me">
-                          <i class="fa fa-phone"></i>
-                        </a>
-                      </li>
-                      <li>
-                        <a class="" target="_blank" href="{{ getUsersActive()->instagram }}" title="My Instagram">
-                          <i class="fa fa-instagram"></i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="col-lg-4 col-md-6 sub-one-left">
-
-                  <h2>
-                    <a class="navbar-brand" href="#">
-                      <img src="{{ asset('assets/images/logo.png') }}" alt="No Logo" style="width: 86%;">
-                    </a>
-                  </h2>
-
-                    <p class="pr-lg-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Consequuntur hic odio voluptatem tenetur consequatur.Lorem ipsum dolor sit amet
-                    consectetur adipisicing elit. </p>
-                  <h6>Our Services</h6>
-                  <div class="mid-footer-gd sub-two-right">
-
-                    <ul>
-                      <li><a href="#"><span class="fa fa-angle-double-right mr-2"></span> About</a>
-                      </li>
-                      <li><a href="#"><span class="fa fa-angle-double-right mr-2"></span> Services</a>
-                      </li>
-                      <li><a href="#"><span class="fa fa-angle-double-right mr-2"></span> Car Wash</a>
-                      </li>
-                      <li><a href="#"><span class="fa fa-angle-double-right mr-2"></span>Electrical system</a>
-                      </li>
-                    </ul>
-                    <ul>
-                      <li><a href="#"><span class="fa fa-angle-double-right mr-2"></span>Tire and wheel</a>
-                      </li>
-                      <li><a href="#"><span class="fa fa-angle-double-right mr-2"></span>Help
-                          Orphan</a>
-                      </li>
-                      <li><a href="#support"><span class="fa fa-angle-double-right mr-2"></span>Career</a></li>
-                      <li><a href="#"><span class="fa fa-angle-double-right mr-2"></span>Contact US</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="col-lg-4 col-md-6 sub-one-left">
-                  <h6>Contact Info</h6>
-                  <div class="sub-contact-info">
-                    <p>Address: 8436 Jasmine Parkway, Mountain View, CA 84043, United States.</p>
-                    <p class="my-3">Phone: <strong><a href="tel:{{ getUsersActive()->no_telp }}">{{ getUsersActive()->no_telp }}</a></strong></p>
-                    <p>E-mail:<strong> <a href="mailto:{{ getUsersActive()->email }}">{{ getUsersActive()->email }}</a></strong></p>
-                  </div>
-                </div>
-              </div>
-            </div> -->
-
-            <div class="row">
+            
+            <!-- <div class="row">
               <div class="col-2"></div>
               <div class="col-4 text-left">
                 <h5 style="color:white!important;margin-bottom:1rem;">Kabupaten</h5>
@@ -110,26 +27,75 @@
                 <p>Kota Banjarmasin</p>
               </div>
               <div class="col-2"></div>
-              <!-- Balangan | Banjar | Barito Kuala | Hulu Sungai Selatan | Hulu Sungai Tengah |
-              Hulu Sungai Utara | Kota Baru | Tabalong | Tanah Bumbu | Tanah Laut | Tapin |
-              Kota BanjarBaru | Kota Banjarmasin  -->
-            </div>
+            </div> -->
 
-            <!-- <ul class="a">
-              <li style="float: center;margin-left: 5px;">Balangan</li>
-              <li style="float: center;margin-left: 5px;">Banjar |</li>
-              <li style="float: center;margin-left: 5px;">Barito Kuala |</li>
-              <li style="float: center;margin-left: 5px;">Hulu Sungai Selatan |</li>
-              <li style="float: center;margin-left: 5px;">Hulu Sungai Tengah |</li>
-              <li style="float: center;margin-left: 5px;">Hulu Sungai Utara |</li>
-              <li style="float: center;margin-left: 5px;">Kota Baru |</li>
-              <li style="float: center;margin-left: 5px;">Tabalong |</li>
-              <li style="float: center;margin-left: 5px;">Tanah Bumbu |</li>
-              <li style="float: center;margin-left: 5px;">Tanah Laut |</li>
-              <li style="float: center;margin-left: 5px;">Tapin |</li>
-              <li style="float: center;margin-left: 5px;">Kota BanjarBaru |</li>
-              <li style="float: center;margin-left: 5px;">Kota Banjarmasin |</li>
-            </ul> -->
+            <section class="mt-3">
+              <div class="row text-center">
+                <!-- <div class="col-1"></div> -->
+                <div class="col-12">
+                  <div class="card" style="width: 100%;background-color:#002b5e;">
+                    <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+                    <div class="card-body">
+                      <div class="row">
+                        
+                        <div class="col-3">
+
+                          <h5 class="card-title text-white">
+                            <i class="fa fa-map-marker fa-2x"></i>
+                            <!-- <b><strong> Location</strong></b> -->
+                          </h5>
+                          <p class="card-text text-white" style="font-size: 12px;">{{ getUsersActive()->alamat_kantor }}</p>
+
+                        </div>
+
+                        <div class="col-2">
+
+                        <h5 class="card-title text-white">
+                          <i class="fa fa-phone fa-2x"></i> 
+                          <!-- <b><strong>Phone</strong></b> -->
+                        </h5>
+                        <p class="card-text text-white" style="font-size: 12px;">{{ getUsersActive()->no_telp }}</p>
+
+                        </div>
+
+                        <div class="col-2">
+
+                        <h5 class="card-title text-white">
+                          <i class="fa fa-instagram fa-2x"></i> 
+                          <!-- <b><strong>Phone</strong></b> -->
+                        </h5>
+                        <p class="card-text text-white" style="font-size: 12px;">{{ getUsersActive()->instagram }}</p>
+
+                        </div>
+
+                        <div class="col-2">
+
+                        <h5 class="card-title text-white">
+                          <i class="fa fa-envelope fa-2x"></i> 
+                          <!-- <b><strong>Email</strong></b> -->
+                        </h5>
+                        <p class="card-text text-white" style="font-size: 12px;">{{ getUsersActive()->email }}</p>
+
+                        </div>
+
+                        <div class="col-3">
+
+                        <h5 class="card-title text-white">
+                          <i class="fa fa-whatsapp fa-2x"></i> 
+                          <!-- <b><strong>Whatsapp</strong></b> -->
+                        </h5>
+                        <p class="card-text text-white" style="font-size: 12px;">{{ getUsersActive()->no_telp }}</p>
+
+                        </div>
+
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+                <!-- <div class="col-1"></div> -->
+              </div>
+            </section>
 
           </div>
         </div>
@@ -147,9 +113,9 @@
               <li><a href="#">Terms Of Use</a>
               </li>
             </ul>
-          </div>
+          <!-- </div>
         </div>
-      </div>
+      </div> -->
       <!-- copyright -->
       <!-- move top -->
       <button class="movetop" onclick="topFunction()" id="movetop" title="Go to top" style="display: block;">
@@ -165,5 +131,5 @@
       </div>
       
 
-    </section>
+    <!-- </section> -->
   </footer>

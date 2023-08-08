@@ -2,17 +2,15 @@
 
 @section ('content')
 
-<section class="w3l-about-breadcrumb position-relative text-center mt-4">
+<!-- <section class="w3l-about-breadcrumb position-relative text-center mt-4">
     <div class="breadcrumb-bg breadcrumb-bg-about py-sm-5 py-4">
       <div class="container py-lg-5 py-3">
         <h2 class="title">Contact Us</h2>
         <ul class="breadcrumbs-custom-path mt-2">
-          <!-- <li><a href="#url">Home</a></li> -->
-          <!-- <li class="active"><span class="fa fa-angle-double-right mx-2" aria-hidden="true"></span> Contact </li> -->
         </ul>
       </div>
     </div>
-</section>
+</section> -->
 
 <div>
   <hr>
@@ -43,14 +41,14 @@
   </div>
 </section> -->
 
-<section class="mt-4">
+<section class="mt-5">
   <div class="row">
     <div class="col-1"></div>
     <div class="col-6">
       <div class="text-center">
-        <h1 style="text-transform:uppercase;">Contact Info</h1>
+        <h1 style="text-transform:uppercase;">My Profile</h1>
         <p class="mt-3" style="font-family: 'Teko',Helvetica,Arial,Lucida,sans-serif;">
-          Hi, saya <b style="text-transform:uppercase;">{{ getUsersActive()->name }}</b>, Branch Manager Dealer Resmi Hyundai Leuwi Panjangan Bandung akan membantu Anda dalam memiliki kendaraan Hyundai dalam bentuk: konsultasi menentukan produk Hyundai yang sesuai dengan kebutuhan, konsultasi pembelian cash/credit yang sesuai dan cocok dengan dana yang dimiliki, memberikan paket promo terbaik, test drive kendaraan, layanan service seperti booking service, dan lain sebagainya. Ada yang ingin ditanyakan? Hubungi kontak saya di bawah ini.
+          {{ getUsersActive()->description_profile }}
         </p>
       </div>
     </div>
@@ -65,74 +63,6 @@
 <div>
   <hr>
 </div>
-
-<section class="mt-3">
-  <div class="row text-center">
-    <div class="col-1"></div>
-    <div class="col-10">
-      <div class="card" style="width: 100%;background-color:#002b5e;">
-        <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
-        <div class="card-body">
-          <div class="row">
-            
-            <div class="col-3">
-
-              <h5 class="card-title text-white">
-                <i class="fa fa-map-marker fa-2x"></i>
-                <!-- <b><strong> Location</strong></b> -->
-              </h5>
-              <p class="card-text text-white" style="font-size: 12px;">{{ getUsersActive()->alamat_kantor }}</p>
-
-            </div>
-
-            <div class="col-2">
-
-            <h5 class="card-title text-white">
-              <i class="fa fa-phone fa-2x"></i> 
-              <!-- <b><strong>Phone</strong></b> -->
-            </h5>
-            <p class="card-text text-white" style="font-size: 12px;">{{ getUsersActive()->no_telp }}</p>
-
-            </div>
-
-            <div class="col-2">
-
-            <h5 class="card-title text-white">
-              <i class="fa fa-instagram fa-2x"></i> 
-              <!-- <b><strong>Phone</strong></b> -->
-            </h5>
-            <p class="card-text text-white" style="font-size: 12px;">{{ getUsersActive()->instagram }}</p>
-
-            </div>
-
-            <div class="col-2">
-
-            <h5 class="card-title text-white">
-              <i class="fa fa-envelope fa-2x"></i> 
-              <!-- <b><strong>Email</strong></b> -->
-            </h5>
-            <p class="card-text text-white" style="font-size: 12px;">{{ getUsersActive()->email }}</p>
-
-            </div>
-
-            <div class="col-3">
-
-            <h5 class="card-title text-white">
-              <i class="fa fa-whatsapp fa-2x"></i> 
-              <!-- <b><strong>Whatsapp</strong></b> -->
-            </h5>
-            <p class="card-text text-white" style="font-size: 12px;">{{ getUsersActive()->no_telp }}</p>
-
-            </div>
-
-          </div>
-          
-        </div>
-      </div>
-    </div>
-    <div class="col-1"></div>
-  </div>
-</section>
 
 
 

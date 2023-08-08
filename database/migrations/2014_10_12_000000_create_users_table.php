@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('instagram')->nullable();
             $table->integer('status')->nullable();
             $table->text('alamat_kantor')->nullable();
+            $table->text('description_profile')->nullable();
             $table->timestamps();
         });
     }

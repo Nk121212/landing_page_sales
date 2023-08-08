@@ -38,6 +38,22 @@ class ProductsController extends Controller
                     <button onclick="showDeleteModal(`'.$row->id.'`, `'.route('admin.products.delete').'`)" class="delete btn btn-danger btn-sm">Delete</button>';
                     return $actionBtn;
                 })
+                ->addColumn('is_brosur_img', function($row){
+                    $isBrosurImg = false;
+
+                    $exp = explode(".", $row->brosur);
+                    $end_key = array_key_last($exp);
+
+                    $extension = $exp[$end_key];
+
+                    if($extension != 'pdf'){
+                        $isBrosurImg = true;
+                    }
+
+                    return $isBrosurImg;
+
+
+                })
                 ->rawColumns(['action'])
                 ->make(true);
         }
